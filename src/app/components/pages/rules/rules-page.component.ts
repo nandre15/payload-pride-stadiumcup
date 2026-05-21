@@ -179,7 +179,7 @@ export class RulesPageComponent {
         'Players of all ranks and skill levels are welcome to participate',
         'Each player may only be rostered on one team',
         'All players must have a valid Overwatch Battle.net account in good standing',
-        'Registration deadline: June 12th, 2026 at 11:59 PM UTC',
+        'Registration deadline: June 19th, 2026 at 11:59 PM UTC',
       ],
     },
     {

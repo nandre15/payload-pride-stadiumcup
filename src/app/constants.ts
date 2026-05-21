@@ -9,7 +9,7 @@ export const PRIDE_COLORS = [
 
 export const GOOGLE_FORM_URL = 'https://forms.gle/1C9GLjHgpgykdkkp8';
 
-export const TOURNAMENT_DATE = new Date('2026-06-20T14:00:00');
+export const TOURNAMENT_DATE = new Date('2026-06-27T14:00:00');
 
 export const NAV_LINKS = ['Home', 'Rules', /*'Schedule'*/] as const;
 
