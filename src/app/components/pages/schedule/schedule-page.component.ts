@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { PRIDE_COLORS } from '../../../constants';
+import { DISCORD_INVITE_URL, PRIDE_COLORS } from '../../../constants';
 
 interface ScheduleEvent {
   time: string;
@@ -78,7 +78,7 @@ interface ScheduleDay {
           Schedule is subject to change. Join our Discord for real-time updates,
           match pairings, and announcements.
         </p>
-        <button class="rainbow-btn small" (click)="openDiscord()">Join Discord ↗</button>
+        <button class="rainbow-btn small" (click)="openDiscord()">Join the PugDiff Discord ↗</button>
       </div>
     </div>
   `,
@@ -304,7 +304,5 @@ export class SchedulePageComponent {
     },
   ];
 
-  openDiscord() {
-    window.open('https://discord.gg/your-invite', '_blank');
-  }
+  openDiscord() {window.open(DISCORD_INVITE_URL, '_blank');}
 }

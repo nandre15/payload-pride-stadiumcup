@@ -33,7 +33,7 @@ import { NAV_LINKS, PRIDE_COLORS } from '../../constants';
       </div>
 
       <p class="copyright">
-        © 2025 Payload Pride Cup · Made with 🏳️‍🌈 for the queer gaming community
+        © 2026 Payload Pride Cup · Made with 🏳️‍🌈 for the queer gaming community
       </p>
     </footer>
   `,

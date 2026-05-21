@@ -21,7 +21,7 @@ import { CountdownComponent } from '../../countdown/countdown.components';
 
       <div class="hero-content">
         <div class="event-badge condensed">
-          🏳️‍🌈 Overwatch Stadium Mode · June 21, 2025
+          🏳️‍🌈 Overwatch Stadium Mode · June 21, 2026
         </div>
 
         <h1 class="black-ops hero-title">PAYLOAD</h1>
