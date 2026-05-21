@@ -7,7 +7,7 @@ export const PRIDE_COLORS = [
   '#86007D',
 ] as const;
 
-export const GOOGLE_FORM_URL = 'https://forms.google.com/your-form-link-here';
+export const GOOGLE_FORM_URL = 'https://forms.gle/1C9GLjHgpgykdkkp8';
 
 export const TOURNAMENT_DATE = new Date('2026-06-21T12:00:00');
 
