@@ -45,7 +45,7 @@ interface RuleSection {
       </div>
 
       <div class="contact-box">
-        <p class="contact-text">Questions about the rules? Reach our admin team in Discord</p>
+        <p class="contact-text">Questions about the rules? Reach out to PugDiff or OAL in Discord</p>
       </div>
     </div>
   `,
