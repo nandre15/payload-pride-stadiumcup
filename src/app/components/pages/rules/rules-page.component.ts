@@ -164,7 +164,7 @@ export class RulesPageComponent {
         'Game: Overwatch — Stadium Mode',
         'Team size: 5 players per team',
         'Match format: Group stage will be round robin one (every team will play at least 2x). The Finals will be the best of 3 quickplay style stadium matches.',
-        'The best team with the highest wins will move to the semi-finals. Tiebreakers will be determined by head-to-head record, then total map differential.',
+        'The top 4 teams will move on to the semi-finals. Tiebreakers will be determined by head-to-head record, then total map differential.',
         'All matches are played on the official Overwatch Stadium map pool',
         'Teams must be ready in lobby 5 minutes before their scheduled match time',
         'No hero restrictions — all heroes available in Stadium Mode are permitted',
