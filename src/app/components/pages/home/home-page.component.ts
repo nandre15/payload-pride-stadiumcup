@@ -18,7 +18,6 @@ import { CountdownComponent } from '../../countdown/countdown.components';
         [style.top]="(10 + i * 13) + '%'"
         [style.left]="(5 + i * 15) + '%'"
       ></div>
-
       <div class="hero-content">
         <div class="event-badge condensed">
           🏳️‍🌈 Overwatch Stadium Mode · June 21, 2026
@@ -111,7 +110,7 @@ import { CountdownComponent } from '../../countdown/countdown.components';
       position: relative;
       overflow: hidden;
     }
-
+    
     .orb {
       position: absolute;
       border-radius: 50%;
