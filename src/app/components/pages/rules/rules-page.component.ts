@@ -172,6 +172,15 @@ export class RulesPageComponent {
       ],
     },
     {
+      title: 'Team Selection',
+      icon: '🫶',
+      color: PRIDE_COLORS[2],
+      items: [
+        'Captains will be selected from participants who opt in during registration. Capains will be chosen based on a combination of factors including rank, activity level in the community, and previous tournament experience.',
+        'Randomizer team selection will be used. A week prior to the tournament. We will stream team selection. All participants will be added to a wheel. We will spin the wheel once for each team slot, and assign players to teams in the order they are drawn.',
+      ],
+    },
+    {
       title: 'Eligibility',
       icon: '✅',
       color: PRIDE_COLORS[3],
