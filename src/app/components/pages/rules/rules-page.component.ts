@@ -163,7 +163,7 @@ export class RulesPageComponent {
       items: [
         'Game: Overwatch — Stadium Mode',
         'Team size: 5 players per team',
-        'Match format: Group stage it will be the best of 1 competitive style stadium matches (best of 7 maps). The Finals will be the best of 3 quickplay style stadium matches.',
+        'Match format: Group stage it will be the best of 1 quickplay style stadium matches (best of 5 maps). The Finals will be the best of 3 quickplay style stadium matches.',
         'All matches are played on the official Overwatch Stadium map pool',
         'Teams must be ready in lobby 5 minutes before their scheduled match time',
         'No hero restrictions — all heroes available in Stadium Mode are permitted',
