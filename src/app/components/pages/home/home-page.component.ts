@@ -1,13 +1,13 @@
-import { Component, output } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { Page } from '../../../app.component';
-import { PRIDE_COLORS, GOOGLE_FORM_URL } from '../../../constants';
+import { RouterLink } from '@angular/router';
+import { PRIDE_COLORS, GOOGLE_FORM_URL, DISCORD_INVITE_URL } from '../../../constants';
 import { CountdownComponent } from '../../countdown/countdown.components';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [NgFor, CountdownComponent],
+  imports: [NgFor, CountdownComponent, RouterLink],
   template: `
     <!-- ── Hero ─────────────────────────────────────────────── -->
     <section class="hero">
@@ -28,13 +28,13 @@ import { CountdownComponent } from '../../countdown/countdown.components';
         <h2 class="black-ops hero-sub">PRIDE CUP</h2>
 
         <p class="hero-desc">
-          The queer gaming community's biggest Overwatch Stadium tournament.
+          Overwatch Stadium tournament for the queer community.
           Compete, celebrate, and push the payload — together.
         </p>
 
         <div class="hero-ctas">
           <button class="rainbow-btn large" (click)="openForm()">Register Now ↗</button>
-          <button class="rainbow-btn small" (click)="navigate.emit('Rules')">View Rules</button>
+          <button class="rainbow-btn large" [routerLink]="['/rules']">View Rules</button>
         </div>
 
         <app-countdown />
@@ -78,18 +78,21 @@ import { CountdownComponent } from '../../countdown/countdown.components';
 
     <!-- ── Sponsors ───────────────────────────────────────────── -->
     <section class="section-container" style="text-align:center">
-      <div class="sponsors-label condensed">Partners &amp; Sponsors</div>
+      <div class="sponsors-label condensed">Partners</div>
       <div class="sponsors-grid">
         <div class="sponsor-slot condensed" *ngFor="let s of sponsors">{{ s }}</div>
       </div>
-      <p class="sponsors-note">Interested in sponsoring? Reach out at hello&#64;payloadpridecup.com</p>
     </section>
 
     <!-- ── Final CTA ──────────────────────────────────────────── -->
     <section class="cta-section">
       <h2 class="black-ops cta-heading">Ready to Push the Payload?</h2>
       <p class="cta-sub">Spots are limited. Register before they fill up.</p>
-      <button class="rainbow-btn large" (click)="openForm()">Register Now ↗</button>
+      <div class="hero-ctas">
+        <button class="rainbow-btn small" (click)="openForm()">Register Now ↗</button>
+        <button class="rainbow-btn small" (click)="openDiscordForm()">Join the PugDiff Discord ↗</button>
+      </div>
+      
     </section>
   `,
   styles: [`
@@ -311,11 +314,11 @@ import { CountdownComponent } from '../../countdown/countdown.components';
   `],
 })
 export class HomePageComponent {
-  navigate = output<Page>();
-
   prideColors = PRIDE_COLORS;
 
   openForm() { window.open(GOOGLE_FORM_URL, '_blank'); }
+
+  openDiscordForm() { window.open(DISCORD_INVITE_URL, '_blank'); }
 
   features = [
     {
@@ -334,16 +337,16 @@ export class HomePageComponent {
       body: 'From casual players to competitive veterans. All ranks are welcome. We match teams fairly so every game is worth showing up for.',
     },
     {
-      icon: '🏆',
-      title: 'Prizes & Glory',
-      body: 'Top teams win prizes, bragging rights, and a spot in queer gaming history. Detailed prize breakdown coming soon. Watch this space.',
+      icon: '🎉',
+      title: 'Hosted By PugDiff',
+      body: 'PugDiff is a passionate Overwatch player dedicated to making competitive play fun for everyone. He is thrilled to host the Payload Pride Cup and can’t wait to see you all in-game.',
     },
   ];
 
   values = [
     'Inclusivity', 'Respect', 'Anti-Harassment', 'Trans Rights',
-    'Safe Spaces', 'Queer Joy', 'Fair Play', 'Accessibility', 'Community First',
+    'Safe Spaces', 'Fun Above All', 'Community First', 'Celebrate Diversity',
   ];
 
-  sponsors = ['Your Sponsor', 'LGBTQ+ Org', 'Game Studio', 'Pride Group'];
+  sponsors = ['Overwatch Aspirants League'];
 }

@@ -1,12 +1,12 @@
-import { Component, input, output } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { Page } from '../../app.component';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NAV_LINKS, PRIDE_COLORS, GOOGLE_FORM_URL } from '../../constants';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, RouterLink, RouterLinkActive],
   template: `
     <nav class="nav">
       <div class="pride-bar">
@@ -15,22 +15,23 @@ import { NAV_LINKS, PRIDE_COLORS, GOOGLE_FORM_URL } from '../../constants';
 
       <div class="nav-inner">
         <!-- Logo -->
-        <button class="logo-btn" (click)="navigate.emit('Home')">
+        <a class="logo-btn" [routerLink]="['/home']">
           <div class="logo-orb">⊕</div>
           <div class="logo-text">
             <div class="logo-title">PAYLOAD</div>
             <div class="logo-sub">PRIDE CUP</div>
           </div>
-        </button>
+        </a>
 
         <!-- Links -->
         <div class="nav-links">
-          <button
+          <a
             *ngFor="let link of navLinks"
             class="nav-link"
-            [class.active]="currentPage() === link"
-            (click)="navigate.emit(link)"
-          >{{ link }}</button>
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            [routerLink]="getLinkPath(link)"
+          >{{ link }}</a>
 
           <button class="register-btn" (click)="openForm()">Register ↗</button>
         </div>
@@ -151,11 +152,12 @@ import { NAV_LINKS, PRIDE_COLORS, GOOGLE_FORM_URL } from '../../constants';
   `],
 })
 export class NavComponent {
-  currentPage = input.required<Page>();
-  navigate = output<Page>();
-
   prideColors = PRIDE_COLORS;
   navLinks = NAV_LINKS;
+
+  getLinkPath(link: string) {
+    return link === 'Home' ? '/home' : '/' + link.toLowerCase();
+  }
 
   openForm() {
     window.open(GOOGLE_FORM_URL, '_blank');

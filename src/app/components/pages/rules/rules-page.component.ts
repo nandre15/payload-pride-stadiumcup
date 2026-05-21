@@ -45,8 +45,7 @@ interface RuleSection {
       </div>
 
       <div class="contact-box">
-        <p class="contact-text">Questions about the rules? Reach our admin team in Discord or email</p>
-        <p class="contact-email condensed">rules&#64;payloadpridecup.com</p>
+        <p class="contact-text">Questions about the rules? Reach our admin team in Discord</p>
       </div>
     </div>
   `,
@@ -162,12 +161,13 @@ export class RulesPageComponent {
       icon: '🎮',
       color: PRIDE_COLORS[4],
       items: [
-        'Game: Overwatch 2 — Stadium Mode',
-        'Team size: 5 players per team (1 substitute allowed per roster)',
-        'Match format: Best of 3 maps in group stage; Best of 5 in semifinals and finals',
+        'Game: Overwatch — Stadium Mode',
+        'Team size: 5 players per team',
+        'Match format: Group stage it will be the best of 3 quickplay style stadium matches. The Finals will be the best of 3 comptetitive style stadium matches.',
         'All matches are played on the official Overwatch Stadium map pool',
-        'Teams must be ready in lobby 10 minutes before their scheduled match time',
+        'Teams must be ready in lobby 5 minutes before their scheduled match time',
         'No hero restrictions — all heroes available in Stadium Mode are permitted',
+        'Stadium Draft is the official tournament format. No hero swapping after lock-in.',
       ],
     },
     {
@@ -175,12 +175,11 @@ export class RulesPageComponent {
       icon: '✅',
       color: PRIDE_COLORS[3],
       items: [
-        'Open to all players 16 years of age or older',
-        'Players 16–17 require a parent or guardian sign-off in the registration form',
+        'Open to all players 18 years of age or older',
         'Players of all ranks and skill levels are welcome to participate',
         'Each player may only be rostered on one team',
-        'All players must have a valid Overwatch 2 Battle.net account in good standing',
-        'Registration deadline: 72 hours before tournament start',
+        'All players must have a valid Overwatch Battle.net account in good standing',
+        'Registration deadline: June 12th, 2026 at 11:59 PM UTC',
       ],
     },
     {
@@ -188,11 +187,10 @@ export class RulesPageComponent {
       icon: '⚔️',
       color: PRIDE_COLORS[1],
       items: [
-        'Teams must check in via Discord at least 30 minutes before their match',
         'A forfeit will be issued after a 10-minute no-show with no communication',
         'Disconnections: the match continues unless both teams agree to a pause (max 5 min per match)',
-        'Observer slots may be used by tournament admins for recording and officiating',
-        'In-game settings must remain at default competitive settings unless otherwise announced',
+        'Spectator slots may be used by tournament admins for recording and officiating',
+        'In-game settings must remain at default for the duration of the match',
         'All disputes must be reported to a tournament admin within 10 minutes of match completion',
       ],
     },

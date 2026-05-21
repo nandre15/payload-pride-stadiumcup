@@ -1,12 +1,12 @@
-import { Component, output } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { Page } from '../../app.component';
+import { RouterLink } from '@angular/router';
 import { NAV_LINKS, PRIDE_COLORS } from '../../constants';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, RouterLink],
   template: `
     <footer class="footer">
       <!-- Logo -->
@@ -20,11 +20,11 @@ import { NAV_LINKS, PRIDE_COLORS } from '../../constants';
 
       <!-- Nav links -->
       <div class="footer-links">
-        <button
+        <a
           class="footer-link condensed"
           *ngFor="let link of navLinks"
-          (click)="navigate.emit(link)"
-        >{{ link }}</button>
+          [routerLink]="link === 'Home' ? '/home' : '/' + link.toLowerCase()"
+        >{{ link }}</a>
       </div>
 
       <!-- Pride bar -->
@@ -119,7 +119,6 @@ import { NAV_LINKS, PRIDE_COLORS } from '../../constants';
   `],
 })
 export class FooterComponent {
-  navigate = output<Page>();
   prideColors = PRIDE_COLORS;
   navLinks = NAV_LINKS;
 }

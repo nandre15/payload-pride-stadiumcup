@@ -1,35 +1,25 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomePageComponent } from './components/pages/home/home-page.component';
-import { RulesPageComponent } from './components/pages/rules/rules-page.component';
-import { SchedulePageComponent } from './components/pages/schedule/schedule-page.component';
-import { NgIf } from '@angular/common';
-
-export type Page = 'Home' | 'Rules' | 'Schedule';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
+    RouterOutlet,
     NavComponent,
     FooterComponent,
-    HomePageComponent,
-    RulesPageComponent,
-    SchedulePageComponent,
-    NgIf,
   ],
   template: `
     <div class="app-shell">
-      <app-nav [currentPage]="currentPage()" (navigate)="currentPage.set($event)" />
+      <app-nav />
 
       <main>
-        <app-home-page   *ngIf="currentPage() === 'Home'"     (navigate)="currentPage.set($event)" />
-        <app-rules-page  *ngIf="currentPage() === 'Rules'"    />
-        <app-schedule-page *ngIf="currentPage() === 'Schedule'" />
+        <router-outlet></router-outlet>
       </main>
 
-      <app-footer (navigate)="currentPage.set($event)" />
+      <app-footer />
     </div>
   `,
   styles: [`
@@ -41,6 +31,4 @@ export type Page = 'Home' | 'Rules' | 'Schedule';
     }
   `],
 })
-export class AppComponent {
-  currentPage = signal<Page>('Home');
-}
+export class AppComponent {}
