@@ -20,7 +20,7 @@ import { CountdownComponent } from '../../countdown/countdown.components';
       ></div>
       <div class="hero-content">
         <div class="event-badge condensed">
-          🏳️‍🌈 Overwatch Stadium Mode · June 19, 2026
+          🏳️‍🌈 Overwatch Stadium Mode · June 20, 2026
         </div>
 
         <h1 class="black-ops hero-title">PAYLOAD</h1>
@@ -89,7 +89,7 @@ import { CountdownComponent } from '../../countdown/countdown.components';
       <p class="cta-sub">Spots are limited. Register before they fill up.</p>
       <div class="hero-ctas">
         <button class="rainbow-btn small" (click)="openForm()">Register Now ↗</button>
-        <button class="rainbow-btn small" (click)="openDiscordForm()">Join the PugDiff Discord ↗</button>
+        <button class="rainbow-btn small" (click)="openDiscordForm()">Join the OAL Discord ↗</button>
       </div>
       
     </section>

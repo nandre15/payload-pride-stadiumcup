@@ -13,4 +13,4 @@ export const TOURNAMENT_DATE = new Date('2026-06-19T17:00:00');
 
 export const NAV_LINKS = ['Home', 'Rules', 'Schedule'] as const;
 
-export const DISCORD_INVITE_URL = 'https://discord.gg/x2PwH2mfgs';
+export const DISCORD_INVITE_URL = 'https://discord.gg/UFkS42E4t2';

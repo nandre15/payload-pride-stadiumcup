@@ -45,7 +45,7 @@ interface RuleSection {
       </div>
 
       <div class="contact-box">
-        <p class="contact-text">Questions about the rules? Reach out to PugDiff or OAL in Discord</p>
+        <p class="contact-text">Questions about the rules? Reach out to OAL in Discord</p>
       </div>
     </div>
   `,
@@ -177,7 +177,7 @@ export class RulesPageComponent {
       color: PRIDE_COLORS[2],
       items: [
         'Captains will be selected from participants who opt in during registration. Captains will be chosen based on a combination of factors including rank, activity level in the community, and previous tournament experience.',
-        'Randomizer team selection will be used. A week prior to the tournament. We will stream team selection. All participants will be added to a wheel. We will spin the wheel once for each team slot, and assign players to teams in the order they are drawn.',
+        'Randomizer team selection will be used. A week prior to the tournament, we select the teams. All participants will be added to a wheel. We will spin the wheel once for each team slot, and assign players to teams in the order they are drawn. Team selections will be annouced the day of.',
       ],
     },
     {

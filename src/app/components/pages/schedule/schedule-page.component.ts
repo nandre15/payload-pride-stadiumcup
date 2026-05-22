@@ -78,7 +78,7 @@ interface ScheduleDay {
           Schedule is subject to change. Join our Discord for real-time updates,
           match pairings, and announcements.
         </p>
-        <button class="rainbow-btn small" (click)="openDiscord()">Join the PugDiff Discord ↗</button>
+        <button class="rainbow-btn small" (click)="openDiscord()">Join the OAL Discord ↗</button>
       </div>
     </div>
   `,
@@ -274,20 +274,20 @@ interface ScheduleDay {
 export class SchedulePageComponent {
   days: ScheduleDay[] = [
     {
-      date: 'Friday, June 19th',
+      date: 'Friday, June 20th',
       label: 'Day 1 — Group Stage',
       color: PRIDE_COLORS[4],
       events: [
-        { time: '5:00 PM ET', label: 'Team Check-In', note: 'Discord check-in required for all teams' },
-        { time: '5:15 PM ET', label: 'Round 1', note: 'Group A: Team A vs Team B (1 Standard Quickplay Stadium Match)' },
-        { time: '5:15 PM ET', label: 'Round 1', note: 'Group B: Team D vs Team E (1 Standard Quickplay Stadium Match)' },
-        { time: '6:15 PM ET', label: 'Round 2', note: 'Group A: Team B vs Team C (1 Standard Quickplay Stadium Match)' },
-        { time: '6:15 PM ET', label: 'Round 2', note: 'Group B: Team E vs Team F (1 Standard Quickplay Stadium Match)' },
-        { time: '7:15 PM ET', label: 'Round 3', note: 'Group A: Team A vs Team C (1 Standard Quickplay Stadium Match)' },
-        { time: '7:15 PM ET', label: 'Round 3', note: 'Group B: Team D vs Team F (1 Standard Quickplay Stadium Match)' },
-        { time: '8:15 PM ET', label: 'Semi-Finals', note: 'Group A #1 vs Group B #2 (1 Standard Competitive Stadium Match)' },
-        { time: '8:15 PM ET', label: 'Semi-Finals', note: 'Group B #1 vs Group A #2 (1 Standard Competitive Stadium Match)' },
-        { time: '9:45 PM ET', label: 'Grand Final', note: 'Winner SF1 vs Winner SF2 (Best of 3 Stadium Quickplay Matches)' },
+        { time: '12:00 PM ET', label: 'Team Check-In', note: 'Discord check-in required for all teams' },
+        { time: '12:15 PM ET', label: 'Round 1', note: 'Group A: Team A vs Team B (1 Standard Quickplay Stadium Match)' },
+        { time: '12:15 PM ET', label: 'Round 1', note: 'Group B: Team D vs Team E (1 Standard Quickplay Stadium Match)' },
+        { time: '1:15 PM ET', label: 'Round 2', note: 'Group A: Team B vs Team C (1 Standard Quickplay Stadium Match)' },
+        { time: '1:15 PM ET', label: 'Round 2', note: 'Group B: Team E vs Team F (1 Standard Quickplay Stadium Match)' },
+        { time: '2:15 PM ET', label: 'Round 3', note: 'Group A: Team A vs Team C (1 Standard Quickplay Stadium Match)' },
+        { time: '2:15 PM ET', label: 'Round 3', note: 'Group B: Team D vs Team F (1 Standard Quickplay Stadium Match)' },
+        { time: '3:15 PM ET', label: 'Semi-Finals', note: 'Group A #1 vs Group B #2 (1 Standard Competitive Stadium Match)' },
+        { time: '3:15 PM ET', label: 'Semi-Finals', note: 'Group B #1 vs Group A #2 (1 Standard Competitive Stadium Match)' },
+        { time: '4:45 PM ET', label: 'Grand Final', note: 'Winner SF1 vs Winner SF2 (Best of 3 Stadium Quickplay Matches)' },
       ],
     },
   ];
