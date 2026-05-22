@@ -274,7 +274,7 @@ interface ScheduleDay {
 export class SchedulePageComponent {
   days: ScheduleDay[] = [
     {
-      date: 'Friday, June 20th',
+      date: 'Saturday, June 20th',
       label: 'Day 1 — Group Stage',
       color: PRIDE_COLORS[4],
       events: [
