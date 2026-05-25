@@ -89,9 +89,8 @@ interface Participant {
     }
 
     .participants-list {
-      display: grid;
-      /* cap card width to avoid large empty gaps on wide screens */
-      grid-template-columns: repeat(auto-fill, minmax(260px, 320px));
+      display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       gap: 12px;
     }
@@ -104,13 +103,12 @@ interface Participant {
         "hero main"
         "team team";
       gap: 0;
+      width: 260px;
       background: rgba(255,255,255,.04);
       border: 1px solid rgba(255,255,255,.09);
       border-radius: 12px;
       overflow: hidden;
       transition: all 0.18s ease;
-      max-width: 320px;
-      justify-self: center;
     }
 
     .participant-card:hover {
@@ -122,16 +120,17 @@ interface Participant {
     .participant-hero {
       grid-area: hero;
       display: flex;
-      align-items: stretch;
+      align-items: center;
+      justify-content: center;
       min-width: 88px;
       width: 88px;
-      height: 100%;
+      height: 120px;
     }
 
     .participant-hero img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
     }
 
@@ -164,6 +163,7 @@ interface Participant {
 
     .participant-info {
       flex: 1;
+      text-align: right;
     }
 
     .participant-name {
@@ -266,7 +266,11 @@ interface Participant {
 
 export class ParticipantsPageComponent {
   participants: Participant[] = [
-    //{ name: 'PugDiff', team: 'TBD', pronouns: 'he/him', twitch: 'https://www.twitch.tv/pugdiff', preferredHero: 'soldier76' },
+    { name: 'Morshadi', team: 'TBD', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/morshadi', preferredHero: 'orisa' },
+    { name: 'ckgedd', team: 'TBD', pronouns: 'he/him', twitch: 'https://www.twitch.tv/ckgedd', preferredHero: 'hazard' },
+    { name: 'e.fontaine', team: 'TBD', pronouns: 'He/They', twitch: 'https://www.twitch.tv/Smok3yQuartz', preferredHero: 'mercy ' },
+    { name: 'Kastor', team: 'TBD', pronouns: 'he/him ', twitch: '', preferredHero: 'reaper' },
+    { name: 'nocturnal_wrld', team: 'TBD', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/thee_unkn0wn', preferredHero: 'orisa' },
     // Add participants here
   ];
 
