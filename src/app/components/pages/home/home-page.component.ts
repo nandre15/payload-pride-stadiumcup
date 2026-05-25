@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PRIDE_COLORS, GOOGLE_FORM_URL, DISCORD_INVITE_URL } from '../../../constants';
-import { CountdownComponent } from '../../countdown/countdown.components';
+import { CountdownComponent } from '../../countdown/countdown.component';
 
 @Component({
   selector: 'app-home-page',
