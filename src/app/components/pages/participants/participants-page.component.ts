@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
-import { PRIDE_COLORS } from '../../../constants';
+import { HERO_IMAGE_BASE_PATH, HERO_IMAGE_MAP } from '../../../constants';
 
 interface Participant {
   name: string;
   team: string | 'TBD';
   pronouns?: string;
   twitch?: string;
+  preferredHero?: string;
 }
 
 @Component({
@@ -25,14 +26,19 @@ interface Participant {
 
       <div class="participants-list" *ngIf="participants.length > 0; else noParticipants">
         <div class="participant-card" *ngFor="let p of participants; let i = index">
-          <div class="participant-header">
-            <div class="participant-info">
-              <div class="participant-name">{{ p.name }}</div>
-              <div class="participant-pronouns" *ngIf="p.pronouns">{{ p.pronouns }}</div>
-              <div class="participant-twitch" *ngIf="p.twitch">
-                <a [href]="p.twitch" target="_blank" rel="noopener noreferrer">
-                  Twitch
-                </a>
+          <div class="participant-hero" *ngIf="getHeroImage(p.preferredHero) as heroImage">
+            <img [src]="heroImage" [alt]="p.preferredHero + ' hero image'" />
+          </div>
+          <div class="participant-main">
+            <div class="participant-header">
+              <div class="participant-info">
+                <div class="participant-name">{{ p.name }}</div>
+                <div class="participant-pronouns" *ngIf="p.pronouns">{{ p.pronouns }}</div>
+                <div class="participant-twitch" *ngIf="p.twitch">
+                  <a [href]="p.twitch" target="_blank" rel="noopener noreferrer">
+                    Twitch
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -40,6 +46,7 @@ interface Participant {
             <span class="team-label">Team:</span>
             <span class="team-value">{{ p.team }}</span>
           </div>
+        
         </div>
       </div>
 
@@ -83,16 +90,27 @@ interface Participant {
 
     .participants-list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 24px;
+      /* cap card width to avoid large empty gaps on wide screens */
+      grid-template-columns: repeat(auto-fill, minmax(260px, 320px));
+      justify-content: center;
+      gap: 12px;
     }
 
     .participant-card {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+        "hero main"
+        "team team";
+      gap: 0;
       background: rgba(255,255,255,.04);
       border: 1px solid rgba(255,255,255,.09);
-      border-radius: 16px;
-      padding: 24px;
-      transition: all 0.2s ease;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.18s ease;
+      max-width: 320px;
+      justify-self: center;
     }
 
     .participant-card:hover {
@@ -100,6 +118,31 @@ interface Participant {
       border-color: rgba(255,255,255,.15);
       transform: translateY(-2px);
     }
+
+    .participant-hero {
+      grid-area: hero;
+      display: flex;
+      align-items: stretch;
+      min-width: 88px;
+      width: 88px;
+      height: 100%;
+    }
+
+    .participant-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .participant-main {
+      grid-area: main;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
 
     .participant-header {
       display: flex;
@@ -140,10 +183,17 @@ interface Participant {
     }
 
     .participant-team {
+      grid-area: team;
       display: flex;
+      justify-content: center;
       gap: 8px;
       align-items: center;
       font-size: 14px;
+      padding: 12px 16px;
+      border-top: 1px solid rgba(255,255,255,.04);
+      background: rgba(255,255,255,.02);
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .participant-team.tbd {
@@ -165,6 +215,28 @@ interface Participant {
       padding: 4px 12px;
       border-radius: 6px;
       font-family: 'Barlow Condensed', sans-serif;
+    }
+
+    .hero-details {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hero-label {
+      color: rgba(255,255,255,.55);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+    }
+
+    .hero-name {
+      color: #fff;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 16px;
     }
 
     .empty-state {
@@ -190,9 +262,22 @@ interface Participant {
     }
   `],
 })
+
+
 export class ParticipantsPageComponent {
   participants: Participant[] = [
-     //{ name: 'PugDiff', team: 'TBD', pronouns: 'they/them', twitch: 'https://www.twitch.tv/pugdiff' },
+    //{ name: 'PugDiff', team: 'TBD', pronouns: 'he/him', twitch: 'https://www.twitch.tv/pugdiff', preferredHero: 'soldier76' },
     // Add participants here
   ];
+
+
+  getHeroImage(heroName?: string): string | null {
+    const key = heroName?.trim().toLowerCase().replace(/\s+/g, '_');
+
+    var test = key && HERO_IMAGE_MAP[key]
+      ? `${HERO_IMAGE_BASE_PATH}/${HERO_IMAGE_MAP[key]}`
+      : null;
+    console.log('Retrieved hero image for:', heroName, '=>', test);
+    return test;
+  }
 }
