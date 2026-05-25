@@ -23,7 +23,6 @@ interface Participant {
       <p class="page-sub">
         Meet the teams competing in the Payload Pride Stadium Cup. Teams are still being formed!
       </p>
-
       <div class="participants-list" *ngIf="participants.length > 0; else noParticipants">
         <div class="participant-card" *ngFor="let p of participants; let i = index">
           <div class="participant-hero" *ngIf="getHeroImage(p.preferredHero) as heroImage">
@@ -49,7 +48,7 @@ interface Participant {
         
         </div>
       </div>
-
+      <h2 style="text-align: center; color: rgba(255,255,255,.5); margin: 40px 0;">And many more to be announced soon...</h2>
       <ng-template #noParticipants>
         <div class="empty-state">
           <div class="empty-icon">👥</div>
