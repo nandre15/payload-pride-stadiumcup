@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { PRIDE_COLORS, GOOGLE_FORM_URL, DISCORD_INVITE_URL } from '../../../constants';
+import { PRIDE_COLORS, GOOGLE_FORM_URL, DISCORD_INVITE_URL, TOURNAMENT_DATE, REGISTRATION_CLOSE_DATE } from '../../../constants';
 import { CountdownComponent } from '../../countdown/countdown.component';
 
 @Component({
@@ -36,7 +36,10 @@ import { CountdownComponent } from '../../countdown/countdown.component';
           <button class="rainbow-btn large" [routerLink]="['/rules']">View Rules</button>
         </div>
 
-        <app-countdown />
+        <h2>Resgistrations close in...</h2>
+        <app-countdown [targetDate]="registrationCloseDate" />
+        <h2>Tournament begins in...</h2>
+        <app-countdown [targetDate]="tournamentStartDate" />
       </div>
     </section>
 
@@ -172,6 +175,7 @@ import { CountdownComponent } from '../../countdown/countdown.component';
       gap: 16px;
       justify-content: center;
       flex-wrap: wrap;
+      margin-bottom: 20px;
     }
 
     /* ── Section heading ──────────────────────────────────── */
@@ -314,6 +318,9 @@ import { CountdownComponent } from '../../countdown/countdown.component';
 })
 export class HomePageComponent {
   prideColors = PRIDE_COLORS;
+
+  registrationCloseDate = REGISTRATION_CLOSE_DATE;
+  tournamentStartDate = TOURNAMENT_DATE;
 
   openForm() { window.open(GOOGLE_FORM_URL, '_blank'); }
 

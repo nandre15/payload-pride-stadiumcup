@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy, signal } from '@angular/core';
+import { Component, OnInit, OnDestroy, signal, Input} from '@angular/core';
 import { NgFor } from '@angular/common';
-import { PRIDE_COLORS, TOURNAMENT_DATE } from '../../constants';
+import { PRIDE_COLORS } from '../../constants';
 
 interface TimeUnit {
   label: string;
@@ -60,7 +60,9 @@ interface TimeUnit {
   `],
 })
 export class CountdownComponent implements OnInit, OnDestroy {
+
   private intervalId: ReturnType<typeof setInterval> | null = null;
+  @Input({ required: true }) targetDate!: Date;
 
   units = signal<TimeUnit[]>([]);
 
@@ -76,7 +78,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
   }
 
   private tick() {
-    const diff = TOURNAMENT_DATE.getTime() - Date.now();
+    const diff = this.targetDate.getTime() - Date.now();
     const safe = Math.max(diff, 0);
 
     const d = Math.floor(safe / 86_400_000);
