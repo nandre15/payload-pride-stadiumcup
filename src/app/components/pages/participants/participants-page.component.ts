@@ -5,9 +5,15 @@ import { HERO_IMAGE_BASE_PATH, HERO_IMAGE_MAP } from '../../../constants';
 interface Participant {
   name: string;
   team: string | 'TBD';
+  role?: string;
   pronouns?: string;
   twitch?: string;
   preferredHero?: string;
+}
+
+interface TeamGroup {
+  team: string;
+  players: Participant[];
 }
 
 @Component({
@@ -48,6 +54,36 @@ interface Participant {
         
         </div>
       </div>
+      <!--
+      <section class="teams-section" *ngIf="teamGroups.length > 0">
+        <div class="section-header">
+          <h2 class="black-ops section-title">Team Rosters</h2>
+        </div>
+
+        <div class="team-groups">
+          <article class="team-group" *ngFor="let group of teamGroups">
+            <div class="team-group-header">
+              <h3>TEAM: {{ group.team.toUpperCase() }}</h3>
+              <span>{{ group.players.length }} players</span>
+            </div>
+
+            <div class="team-player-list">
+              <div class="team-player header-row">
+                <span>Name</span>
+                <span>Preferred Hero</span>
+                <span>Role</span>
+              </div>
+
+              <div class="team-player" *ngFor="let player of group.players">
+                <span class="player-name">{{ player.name.toUpperCase() }}</span>
+                <span>{{ formatValue(player.preferredHero).toUpperCase() }}</span>
+                <span>{{ formatValue(player.role) }}</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      -->
       <h2 style="text-align: center; color: rgba(255,255,255,.5); margin: 40px 0;">And many more to be announced soon...</h2>
       <ng-template #noParticipants>
         <div class="empty-state">
@@ -149,17 +185,6 @@ interface Participant {
       align-items: flex-start;
     }
 
-    .participant-number {
-      font-family: 'Black Ops One', cursive;
-      font-size: 24px;
-      background: linear-gradient(135deg, #FF0018, #86007D);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      min-width: 30px;
-      text-align: center;
-      line-height: 1;
-    }
-
     .participant-info {
       flex: 1;
       text-align: right;
@@ -216,28 +241,6 @@ interface Participant {
       font-family: 'Barlow Condensed', sans-serif;
     }
 
-    .hero-details {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .hero-label {
-      color: rgba(255,255,255,.55);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-weight: 600;
-    }
-
-    .hero-name {
-      color: #fff;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 16px;
-    }
-
     .empty-state {
       text-align: center;
       padding: 80px 24px;
@@ -258,6 +261,109 @@ interface Participant {
     .empty-sub {
       font-size: 16px;
       color: rgba(255,255,255,.55);
+    }
+
+    .teams-section {
+      margin-top: 72px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-family: 'Black Ops One', cursive;
+      font-size: clamp(28px, 4vw, 44px);
+      color: #fff;
+      margin: 0 0 8px;
+    }
+
+    .section-sub {
+      color: rgba(255,255,255,.55);
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .team-groups {
+      display: grid;
+      gap: 18px;
+    }
+
+    .team-group {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .team-group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 18px;
+      background: rgba(255,255,255,.05);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .team-group-header h3 {
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 24px;
+      line-height: 1;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .team-group-header span {
+      color: rgba(255,255,255,.55);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .team-player-list {
+      display: grid;
+    }
+
+    .team-player {
+      display: grid;
+      grid-template-columns: minmax(120px, 1.4fr) minmax(110px, 1fr) minmax(80px, .8fr);
+      gap: 16px;
+      align-items: center;
+      padding: 12px 18px;
+      color: rgba(255,255,255,.72);
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      font-size: 14px;
+    }
+
+    .team-player:last-child {
+      border-bottom: 0;
+    }
+
+    .team-player.header-row {
+      color: rgba(255,255,255,.45);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .player-name {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    @media (max-width: 620px) {
+      .team-player {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .team-player.header-row {
+        display: none;
+      }
     }
   `],
 })
@@ -280,6 +386,22 @@ export class ParticipantsPageComponent {
     { name: 'spurge215', team: 'TBD', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/Spurgee', preferredHero: 'moira' }
     // Add participants here
   ];
+
+  get teamGroups(): TeamGroup[] {
+    const groups = this.participants.reduce<Record<string, Participant[]>>((acc, participant) => {
+      const team = participant.team || 'TBD';
+      acc[team] = acc[team] ?? [];
+      acc[team].push(participant);
+      return acc;
+    }, {});
+
+    return Object.entries(groups).map(([team, players]) => ({ team, players }));
+  }
+
+  formatValue(value?: string): string {
+    const formatted = value?.trim();
+    return formatted ? formatted : 'TBD';
+  }
 
 
   getHeroImage(heroName?: string): string | null {
