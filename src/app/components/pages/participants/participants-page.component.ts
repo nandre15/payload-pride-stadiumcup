@@ -383,9 +383,17 @@ export class ParticipantsPageComponent {
     { name: 'MidnightAstron', team: 'TBD', pronouns: 'They/He', twitch: 'https://www.twitch.tv/MidnightAstron', preferredHero: 'juno' },
     { name: 'redlikeruby', team: 'TBD', pronouns: 'she/her', twitch: '', preferredHero: 'sigma' },
     { name: 'DeadRabbit_OW', team: 'TBD', pronouns: 'He/him', twitch: 'https://www.twitch.tv/DeadRabbit_OW', preferredHero: 'tracer' },
-    { name: 'spurge215', team: 'TBD', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/Spurgee', preferredHero: 'moira' }
+    { name: 'spurge215', team: 'TBD', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/Spurgee', preferredHero: 'moira' },
+    { name: 'Aetheriiel', team: 'TBD', pronouns: 'They/Them', twitch: 'https://www.twitch.tv/Twitch.tvAetheriiel', preferredHero: 'ana' },
+    { name: 'Hydro', team: 'TBD', pronouns: 'He', twitch: 'https://www.twitch.tv/No', preferredHero: 'ana ' },
+    { name: 'averyjbyrd', team: 'TBD', pronouns: 'they/she', twitch: 'https://www.twitch.tv/twitch.tvaveryjbyrd', preferredHero: 'brigitte' },
+    { name: 'ItsTheRocketeer', team: 'TBD', pronouns: 'he/him', twitch: 'https://www.twitch.tv/@itstherocketeer', preferredHero: 'zenyatta' },
+    { name: 'Matchu', team: 'TBD', pronouns: 'He/him', twitch: 'https://www.twitch.tv/matchupichu777', preferredHero: 'brigitte' },
+    { name: 'dqylight', team: 'TBD', pronouns: 'they/them', twitch: 'https://www.twitch.tv/dqylightt', preferredHero: 'kiri' },
+    { name: 'Larrbearfps', team: 'TBD', pronouns: 'He/him', twitch: 'https://www.twitch.tv/Larrbearfps', preferredHero: 'soldier76' },
     // Add participants here
   ];
+
 
   get teamGroups(): TeamGroup[] {
     const groups = this.participants.reduce<Record<string, Participant[]>>((acc, participant) => {
