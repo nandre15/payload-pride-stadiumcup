@@ -389,7 +389,7 @@ export class ParticipantsPageComponent {
     { name: 'averyjbyrd', team: 'TBD', pronouns: 'they/she', twitch: 'https://www.twitch.tv/averyjbyrd', preferredHero: 'brigitte' },
     { name: 'ItsTheRocketeer', team: 'TBD', pronouns: 'he/him', twitch: 'https://www.twitch.tv/itstherocketeer', preferredHero: 'zenyatta' },
     { name: 'Matchu', team: 'TBD', pronouns: 'He/him', twitch: 'https://www.twitch.tv/matchupichu777', preferredHero: 'brigitte' },
-    { name: 'dqylight', team: 'TBD', pronouns: 'they/them', twitch: 'https://www.twitch.tv/dqylightt', preferredHero: 'kiri' },
+    { name: 'dqylight', team: 'TBD', pronouns: 'they/them', twitch: 'https://www.twitch.tv/dqylightt', preferredHero: 'kiriko' },
     { name: 'Larrbearfps', team: 'TBD', pronouns: 'He/him', twitch: 'https://www.twitch.tv/Larrbearfps', preferredHero: 'soldier76' },
     // Add participants here
   ];
