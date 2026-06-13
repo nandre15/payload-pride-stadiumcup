@@ -369,34 +369,59 @@ interface TeamGroup {
 
 export class ParticipantsPageComponent {
   participants: Participant[] = [
-    { name: 'Morshadi', team: 'Team 2', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/morshadi', preferredHero: 'orisa' },
-    { name: 'ckgedd', team: 'Team 4', pronouns: 'he/him', twitch: 'https://www.twitch.tv/ckgedd', preferredHero: 'hazard' },
-    { name: 'EJ', team: 'Team 1', pronouns: 'He/They', twitch: 'https://www.twitch.tv/Smok3yQuartz', preferredHero: 'mercy ' },
-    { name: 'Kastor', team: 'Team 3', pronouns: 'he/him ', twitch: '', preferredHero: 'reaper' },
-    { name: 'nocturnal_wrld', team: 'Team 5', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/thee_unkn0wn', preferredHero: 'orisa' },
-    { name: 'A SkyVValker', team: 'Team 4', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/A_SkyVValker', preferredHero: 'moira' },
-    { name: 'Potato013125', team: 'Team 4', pronouns: 'He/him', twitch: 'https://www.twitch.tv/Potatobread127', preferredHero: 'orisa' },
-    { name: 'jhicks311', team: 'Team 2', pronouns: 'she/her', twitch: 'https://www.twitch.tv/cutiejulie_', preferredHero: 'brigitte' },
-    { name: 'daddeemangoz', team: 'Team 5', pronouns: 'she/they', twitch: 'https://www.twitch.tv/daddeemangos', preferredHero: 'tracer' },
-    { name: 'MidnightAstron', team: 'Team 3', pronouns: 'They/He', twitch: 'https://www.twitch.tv/MidnightAstron', preferredHero: 'juno' },
-    { name: 'redlikeruby', team: 'Team 3', pronouns: 'she/her', twitch: '', preferredHero: 'sigma' },
-    { name: 'DeadRabbit_OW', team: 'Team 4', pronouns: 'He/him', twitch: 'https://www.twitch.tv/DeadRabbit_OW', preferredHero: 'tracer' },
-    { name: 'spurge215', team: 'Team 4', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/Spurgee', preferredHero: 'moira' },
-    { name: 'Aetheriiel', team: 'Team 2', pronouns: 'They/Them', twitch: 'https://www.twitch.tv/Aetheriiel', preferredHero: 'ana' },
-    { name: 'Hydro', team: 'Team 3', pronouns: 'He', twitch: '', preferredHero: 'ana ' },
-    { name: 'averyjbyrd', team: 'Team 5', pronouns: 'they/she', twitch: 'https://www.twitch.tv/averyjbyrd', preferredHero: 'brigitte' },
-    { name: 'ItsTheRocketeer', team: 'Team 1', pronouns: 'he/him', twitch: 'https://www.twitch.tv/itstherocketeer', preferredHero: 'zenyatta' },
-    { name: 'Matchu', team: 'Team 2', pronouns: 'He/him', twitch: 'https://www.twitch.tv/matchupichu777', preferredHero: 'brigitte' },
-    { name: 'dqylight', team: 'Team 5', pronouns: 'they/them', twitch: 'https://www.twitch.tv/dqylightt', preferredHero: 'kiriko' },
-    { name: 'Larrbearfps', team: 'Team 2', pronouns: 'He/him', twitch: 'https://www.twitch.tv/Larrbearfps', preferredHero: 'soldier76' },
-    { name: 'Feddywin', team: 'Team 1', pronouns: 'he/him', twitch: '', preferredHero: 'sigma' },
-    { name: 'JD8448DJ', team: 'Team 5', pronouns: 'He/Him', twitch: '', preferredHero: 'orisa' },
-    { name: 'Mayaheart13', team: 'Team 1', pronouns: 'She/Her', twitch: 'https://www.twitch.tv/Mayaheart13', preferredHero: 'mercy' },
-    { name: 'K-tlin', team: 'Team 2', pronouns: 'She', twitch: '', preferredHero: 'winston' },
+    // Team 1
+    { name: 'Feddywin', team: 'Team 1', pronouns: 'he/him', twitch: '', preferredHero: 'sigma', role: 'tank' },
+
+    { name: 'Rob a lob', team: 'Team 1', pronouns: 'He/him', twitch: '', preferredHero: 'tracer', role: 'dps' },
+    { name: 'EJ', team: 'Team 1', pronouns: 'He/They', twitch: 'https://www.twitch.tv/Smok3yQuartz', preferredHero: 'mercy ', role: 'dps' },
+
+    { name: 'ItsTheRocketeer', team: 'Team 1', pronouns: 'he/him', twitch: 'https://www.twitch.tv/itstherocketeer', preferredHero: 'zenyatta', role: 'support' },
+    { name: 'Mayaheart13', team: 'Team 1', pronouns: 'She/Her', twitch: 'https://www.twitch.tv/Mayaheart13', preferredHero: 'mercy', role: 'support' },
+
+    // Team 2
+    { name: 'K-tlin', team: 'Team 2', pronouns: 'She', twitch: '', preferredHero: 'winston', role: 'tank' },
+
+    { name: 'Larrbearfps', team: 'Team 2', pronouns: 'He/him', twitch: 'https://www.twitch.tv/Larrbearfps', preferredHero: 'soldier76', role: 'dps' },
+    { name: 'Aetheriiel', team: 'Team 2', pronouns: 'They/Them', twitch: 'https://www.twitch.tv/Aetheriiel', preferredHero: 'ana', role: 'dps' },
+
+    
+    { name: 'jhicks311', team: 'Team 2', pronouns: 'she/her', twitch: 'https://www.twitch.tv/cutiejulie_', preferredHero: 'brigitte', role: 'support' },
+    { name: 'Matchu', team: 'Team 2', pronouns: 'He/him', twitch: 'https://www.twitch.tv/matchupichu777', preferredHero: 'brigitte', role: 'support' },
+    
+
+    // Team 3
+
+    { name: 'redlikeruby', team: 'Team 3', pronouns: 'she/her', twitch: '', preferredHero: 'sigma', role: 'tank' },
+
+    { name: 'Kastor', team: 'Team 3', pronouns: 'he/him ', twitch: '', preferredHero: 'reaper', role: 'dps' },
+    { name: 'MidnightAstron', team: 'Team 3', pronouns: 'They/He', twitch: 'https://www.twitch.tv/MidnightAstron', preferredHero: 'juno', role: 'dps' },
+    
+    { name: 'Hydro', team: 'Team 3', pronouns: 'He', twitch: '', preferredHero: 'ana ', role: 'support' },
+    { name: 'Morshadi', team: 'Team 3', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/morshadi', preferredHero: 'orisa', role: 'support' },
+
+    // Team 4
+    { name: 'Potato013125', team: 'Team 4', pronouns: 'He/him', twitch: 'https://www.twitch.tv/Potatobread127', preferredHero: 'orisa', role: 'tank' },
+
+    { name: 'DeadRabbit_OW', team: 'Team 4', pronouns: 'He/him', twitch: 'https://www.twitch.tv/DeadRabbit_OW', preferredHero: 'tracer', role: 'dps' },
+    { name: 'A SkyVValker', team: 'Team 4', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/A_SkyVValker', preferredHero: 'moira', role: 'dps' },
+    
+    { name: 'spurge215', team: 'Team 4', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/Spurgee', preferredHero: 'moira', role: 'support' },
+    { name: 'ckgedd', team: 'Team 4', pronouns: 'he/him', twitch: 'https://www.twitch.tv/ckgedd', preferredHero: 'hazard', role: 'support' },
+
+    // Team 5
+    { name: 'JD8448DJ', team: 'Team 5', pronouns: 'He/Him', twitch: '', preferredHero: 'orisa', role: 'tank' },
+
+    { name: 'daddeemangoz', team: 'Team 5', pronouns: 'she/they', twitch: 'https://www.twitch.tv/daddeemangos', preferredHero: 'tracer', role: 'dps' },
+    { name: 'dqylight', team: 'Team 5', pronouns: 'they/them', twitch: 'https://www.twitch.tv/dqylightt', preferredHero: 'kiriko', role: 'dps' },
+
+    { name: 'nocturnal_wrld', team: 'Team 5', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/thee_unkn0wn', preferredHero: 'orisa', role: 'support' },
+    { name: 'averyjbyrd', team: 'Team 5', pronouns: 'they/she', twitch: 'https://www.twitch.tv/averyjbyrd', preferredHero: 'brigitte', role: 'support' },
+    
+    
+
+    // Sub/Alt
     { name: 'carrietheone', team: 'Sub/Alt', pronouns: 'Any/all', twitch: 'https://www.twitch.tv/carrietheone', preferredHero: 'moira' },
-    { name: 'Rob a lob', team: 'Team 3', pronouns: 'He/him', twitch: '', preferredHero: 'tracer' },
-    { name: 'annasummers', team: 'Sub/Alt', pronouns: 'any/all', twitch: 'https://www.twitch.tv/annaxsummers', preferredHero: 'ana' },
-    // Add participants here
+    { name: 'annasummers', team: 'Sub/Alt', pronouns: 'any/all', twitch: 'https://www.twitch.tv/annaxsummers', preferredHero: 'ana' }
   ];
 
 
