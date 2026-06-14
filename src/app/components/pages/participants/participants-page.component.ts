@@ -392,7 +392,6 @@ export class ParticipantsPageComponent {
     { name: 'Larrbearfps', team: 'Team 2', pronouns: 'He/him', twitch: 'https://www.twitch.tv/Larrbearfps', preferredHero: 'soldier76', role: 'dps' },
     { name: 'Aetheriiel', team: 'Team 2', pronouns: 'They/Them', twitch: 'https://www.twitch.tv/Aetheriiel', preferredHero: 'ana', role: 'dps' },
 
-
     { name: 'jhicks311', team: 'Team 2', pronouns: 'she/her', twitch: 'https://www.twitch.tv/cutiejulie_', preferredHero: 'brigitte', role: 'support' },
     { name: 'Matchu', team: 'Team 2', pronouns: 'He/him', twitch: 'https://www.twitch.tv/matchupichu777', preferredHero: 'brigitte', role: 'support' },
 
@@ -424,8 +423,6 @@ export class ParticipantsPageComponent {
 
     { name: 'nocturnal_wrld', team: 'Team 5', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/thee_unkn0wn', preferredHero: 'orisa', role: 'support' },
     { name: 'averyjbyrd', team: 'Team 5', pronouns: 'they/she', twitch: 'https://www.twitch.tv/averyjbyrd', preferredHero: 'brigitte', role: 'support' },
-
-
 
     // Sub/Alt
     { name: 'carrietheone', team: 'Sub/Alt', pronouns: 'Any/all', twitch: 'https://www.twitch.tv/carrietheone', preferredHero: 'moira' },
