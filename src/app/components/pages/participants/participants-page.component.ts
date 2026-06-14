@@ -29,6 +29,8 @@ interface TeamGroup {
       <p class="page-sub">
         Meet the teams competing in the Payload Pride Stadium Cup. Teams are still being formed!
       </p>
+
+<!-- 
       <div class="participants-list" *ngIf="participants.length > 0; else noParticipants">
         <div class="participant-card" *ngFor="let p of participants; let i = index">
           <div class="participant-hero" *ngIf="getHeroImage(p.preferredHero) as heroImage">
@@ -54,6 +56,8 @@ interface TeamGroup {
         
         </div>
       </div>
+      -->
+      
       <section class="teams-section" *ngIf="teamGroups.length > 0">
         <div class="section-header">
           <h2 class="black-ops section-title">Team Rosters</h2>
@@ -69,20 +73,23 @@ interface TeamGroup {
             <div class="team-player-list">
               <div class="team-player header-row">
                 <span>Name</span>
-                <span>Preferred Hero</span>
+                <span>Twitch</span>
                 <span>Role</span>
               </div>
 
               <div class="team-player" *ngFor="let player of group.players">
                 <span class="player-name">{{ player.name.toUpperCase() }}</span>
-                <span>{{ formatValue(player.preferredHero).toUpperCase() }}</span>
-                <span>{{ formatValue(player.role) }}</span>
+                <span
+                  ><a [href]="player.twitch" target="_blank" rel="noopener noreferrer">{{ getTwitchUsername(player.twitch) || 'N/A' }}</a>
+                </span>
+                <span>{{ formatValue(player.role).toUpperCase() }}</span>
+
               </div>
             </div>
           </article>
         </div>
       </section>
-      <h2 style="text-align: center; color: rgba(255,255,255,.5); margin: 40px 0;">And many more to be announced soon...</h2>
+
       <ng-template #noParticipants>
         <div class="empty-state">
           <div class="empty-icon">👥</div>
@@ -263,6 +270,7 @@ interface TeamGroup {
 
     .teams-section {
       margin-top: 72px;
+      margin-bottom: 40px;
     }
 
     .section-header {
@@ -384,10 +392,10 @@ export class ParticipantsPageComponent {
     { name: 'Larrbearfps', team: 'Team 2', pronouns: 'He/him', twitch: 'https://www.twitch.tv/Larrbearfps', preferredHero: 'soldier76', role: 'dps' },
     { name: 'Aetheriiel', team: 'Team 2', pronouns: 'They/Them', twitch: 'https://www.twitch.tv/Aetheriiel', preferredHero: 'ana', role: 'dps' },
 
-    
+
     { name: 'jhicks311', team: 'Team 2', pronouns: 'she/her', twitch: 'https://www.twitch.tv/cutiejulie_', preferredHero: 'brigitte', role: 'support' },
     { name: 'Matchu', team: 'Team 2', pronouns: 'He/him', twitch: 'https://www.twitch.tv/matchupichu777', preferredHero: 'brigitte', role: 'support' },
-    
+
 
     // Team 3
 
@@ -395,7 +403,7 @@ export class ParticipantsPageComponent {
 
     { name: 'Kastor', team: 'Team 3', pronouns: 'he/him ', twitch: '', preferredHero: 'reaper', role: 'dps' },
     { name: 'MidnightAstron', team: 'Team 3', pronouns: 'They/He', twitch: 'https://www.twitch.tv/MidnightAstron', preferredHero: 'juno', role: 'dps' },
-    
+
     { name: 'Hydro', team: 'Team 3', pronouns: 'He', twitch: '', preferredHero: 'ana ', role: 'support' },
     { name: 'Morshadi', team: 'Team 3', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/morshadi', preferredHero: 'orisa', role: 'support' },
 
@@ -404,7 +412,7 @@ export class ParticipantsPageComponent {
 
     { name: 'DeadRabbit_OW', team: 'Team 4', pronouns: 'He/him', twitch: 'https://www.twitch.tv/DeadRabbit_OW', preferredHero: 'tracer', role: 'dps' },
     { name: 'A SkyVValker', team: 'Team 4', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/A_SkyVValker', preferredHero: 'moira', role: 'dps' },
-    
+
     { name: 'spurge215', team: 'Team 4', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/Spurgee', preferredHero: 'moira', role: 'support' },
     { name: 'ckgedd', team: 'Team 4', pronouns: 'he/him', twitch: 'https://www.twitch.tv/ckgedd', preferredHero: 'hazard', role: 'support' },
 
@@ -416,8 +424,8 @@ export class ParticipantsPageComponent {
 
     { name: 'nocturnal_wrld', team: 'Team 5', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/thee_unkn0wn', preferredHero: 'orisa', role: 'support' },
     { name: 'averyjbyrd', team: 'Team 5', pronouns: 'they/she', twitch: 'https://www.twitch.tv/averyjbyrd', preferredHero: 'brigitte', role: 'support' },
-    
-    
+
+
 
     // Sub/Alt
     { name: 'carrietheone', team: 'Sub/Alt', pronouns: 'Any/all', twitch: 'https://www.twitch.tv/carrietheone', preferredHero: 'moira' },
@@ -450,5 +458,12 @@ export class ParticipantsPageComponent {
       : null;
     console.log('Retrieved hero image for:', heroName, '=>', test);
     return test;
+  }
+
+  getTwitchUsername(url: string | undefined): string | null {
+    if (!url) return null;
+    const match = url.match(/^https?:\/\/(?:www\.)?twitch\.tv\/([^/?#]+)/i);
+    
+    return match ? match[1] : null;
   }
 }
