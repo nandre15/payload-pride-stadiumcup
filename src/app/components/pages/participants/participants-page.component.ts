@@ -403,7 +403,7 @@ export class ParticipantsPageComponent {
     { name: 'MidnightAstron', team: 'Team 3', pronouns: 'They/He', twitch: 'https://www.twitch.tv/MidnightAstron', preferredHero: 'juno', role: 'dps' },
 
     { name: 'Hydro', team: 'Team 3', pronouns: 'He', twitch: '', preferredHero: 'ana ', role: 'support' },
-    { name: 'annasummers', team: 'Sub/Alt', pronouns: 'any/all', twitch: 'https://www.twitch.tv/annaxsummers', preferredHero: 'ana', role: 'support' },
+    { name: 'annasummers', team: 'Team 3', pronouns: 'any/all', twitch: 'https://www.twitch.tv/annaxsummers', preferredHero: 'ana', role: 'support' },
     
 
     // Team 4
