@@ -398,17 +398,17 @@ export class ParticipantsPageComponent {
 
 
     // Team 3
-
     { name: 'redlikeruby', team: 'Team 3', pronouns: 'she/her', twitch: '', preferredHero: 'sigma', role: 'tank' },
 
     { name: 'Kastor', team: 'Team 3', pronouns: 'he/him ', twitch: '', preferredHero: 'reaper', role: 'dps' },
     { name: 'MidnightAstron', team: 'Team 3', pronouns: 'They/He', twitch: 'https://www.twitch.tv/MidnightAstron', preferredHero: 'juno', role: 'dps' },
 
     { name: 'Hydro', team: 'Team 3', pronouns: 'He', twitch: '', preferredHero: 'ana ', role: 'support' },
-    { name: 'Morshadi', team: 'Team 3', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/morshadi', preferredHero: 'orisa', role: 'support' },
+    { name: 'annasummers', team: 'Sub/Alt', pronouns: 'any/all', twitch: 'https://www.twitch.tv/annaxsummers', preferredHero: 'ana', role: 'support' },
+    
 
     // Team 4
-    { name: 'Potato013125', team: 'Team 4', pronouns: 'He/him', twitch: 'https://www.twitch.tv/Potatobread127', preferredHero: 'orisa', role: 'tank' },
+    { name: 'Morshadi', team: 'Team 3', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/morshadi', preferredHero: 'orisa', role: 'tank' },
 
     { name: 'DeadRabbit_OW', team: 'Team 4', pronouns: 'He/him', twitch: 'https://www.twitch.tv/DeadRabbit_OW', preferredHero: 'tracer', role: 'dps' },
     { name: 'A SkyVValker', team: 'Team 4', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/A_SkyVValker', preferredHero: 'moira', role: 'dps' },
@@ -429,7 +429,6 @@ export class ParticipantsPageComponent {
 
     // Sub/Alt
     { name: 'carrietheone', team: 'Sub/Alt', pronouns: 'Any/all', twitch: 'https://www.twitch.tv/carrietheone', preferredHero: 'moira' },
-    { name: 'annasummers', team: 'Sub/Alt', pronouns: 'any/all', twitch: 'https://www.twitch.tv/annaxsummers', preferredHero: 'ana' }
   ];
 
 
