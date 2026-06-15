@@ -407,7 +407,7 @@ export class ParticipantsPageComponent {
     
 
     // Team 4
-    { name: 'Morshadi', team: 'Team 3', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/morshadi', preferredHero: 'orisa', role: 'tank' },
+    { name: 'Morshadi', team: 'Team 4', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/morshadi', preferredHero: 'orisa', role: 'tank' },
 
     { name: 'DeadRabbit_OW', team: 'Team 4', pronouns: 'He/him', twitch: 'https://www.twitch.tv/DeadRabbit_OW', preferredHero: 'tracer', role: 'dps' },
     { name: 'A SkyVValker', team: 'Team 4', pronouns: 'He/Him', twitch: 'https://www.twitch.tv/A_SkyVValker', preferredHero: 'moira', role: 'dps' },
