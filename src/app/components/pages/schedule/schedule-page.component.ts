@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { DISCORD_INVITE_URL, PRIDE_COLORS } from '../../../constants';
+import { DISCORD_INVITE_URL, GROUP_STAGE_ROUNDS, PRIDE_COLORS, TBD_TEAM_NAME, TEAM_NAMES } from '../../../constants';
 
 interface ScheduleEvent {
   time: string;
@@ -272,6 +272,9 @@ interface ScheduleDay {
   `],
 })
 export class SchedulePageComponent {
+  private readonly teams = TEAM_NAMES;
+  private readonly groupRounds = GROUP_STAGE_ROUNDS;
+
   days: ScheduleDay[] = [
     {
       date: 'Saturday, June 20th',
@@ -280,29 +283,71 @@ export class SchedulePageComponent {
       events: [
         { time: '12:15 PM ET', label: 'Team Check-In', note: 'Discord check-in required for all teams' },
 
-        { time: '12:30 PM ET', label: 'Round 1', note: 'Team 1 vs Team 5 (1 Standard Quickplay Stadium Match)' },
-        { time: '12:30 PM ET', label: 'Round 1', note: 'Team 2 vs Team 4 (1 Standard Quickplay Stadium Match)' },
+        { time: '12:30 PM ET', label: 'Round 1', note: this.matchNote(this.teams[0], this.teams[4]) },
+        { time: '12:30 PM ET', label: 'Round 1', note: this.matchNote(this.teams[1], this.teams[3]) },
 
-        { time: '1:00 PM ET', label: 'Round 2', note: 'Team 1 vs Team 4 (1 Standard Quickplay Stadium Match)' },
-        { time: '1:00 PM ET', label: 'Round 2', note: 'Team 5 vs Team 3 (1 Standard Quickplay Stadium Match)' },
+        { time: '1:00 PM ET', label: 'Round 2', note: this.matchNote(this.teams[0], this.teams[3]) },
+        { time: '1:00 PM ET', label: 'Round 2', note: this.matchNote(this.teams[4], this.teams[2]) },
         
-        { time: '1:30 PM ET', label: 'Round 3', note: 'Team 1 vs Team 3 (1 Standard Quickplay Stadium Match)' },
-        { time: '1:30 PM ET', label: 'Round 3', note: 'Team 4 vs Team 2 (1 Standard Quickplay Stadium Match)' },
+        { time: '1:30 PM ET', label: 'Round 3', note: this.matchNote(this.teams[0], this.teams[2]) },
+        { time: '1:30 PM ET', label: 'Round 3', note: this.matchNote(this.teams[3], this.teams[1]) },
 
-        { time: '2:00 PM ET', label: 'Round 4', note: 'Team 1 vs Team 2 (1 Standard Quickplay Stadium Match)' },
-        { time: '2:00 PM ET', label: 'Round 4', note: 'Team 3 vs Team 5 (1 Standard Quickplay Stadium Match)' },
+        { time: '2:00 PM ET', label: 'Round 4', note: this.matchNote(this.teams[0], this.teams[1]) },
+        { time: '2:00 PM ET', label: 'Round 4', note: this.matchNote(this.teams[2], this.teams[4]) },
 
-        { time: '2:30 PM ET', label: 'Round 5', note: 'Team 2 vs Team 5 (1 Standard Quickplay Stadium Match)' },
-        { time: '2:30 PM ET', label: 'Round 5', note: 'Team 3 vs Team 4 (1 Standard Quickplay Stadium Match)' },
+        { time: '2:30 PM ET', label: 'Round 5', note: this.matchNote(this.teams[1], this.teams[4]) },
+        { time: '2:30 PM ET', label: 'Round 5', note: this.matchNote(this.teams[2], this.teams[3]) },
 
-        { time: '3:00 PM ET', label: 'Semi-Finals', note: 'TBD vs TBD (1 Competitive Stadium Match)' },
+        { time: '3:00 PM ET', label: 'Semi-Finals', note: this.semiFinalNote(0) },
 
-        { time: '3:45 PM ET', label: 'Semi-Finals', note: 'TBD vs TBD (1 Competitive Stadium Match)' },
+        { time: '3:45 PM ET', label: 'Semi-Finals', note: this.semiFinalNote(1) },
 
-        { time: '4:30 PM ET', label: 'Finals', note: 'TBD vs TBD (BO3 QP Stadium Match)' },
+        { time: '4:30 PM ET', label: 'Finals', note: this.finalsNote() },
       ],
     },
   ];
+
+  private matchNote(teamA: string, teamB: string): string {
+    return `${teamA} vs ${teamB} (1 Standard Quickplay Stadium Match)`;
+  }
+
+  private semiFinalNote(matchIndex: 0 | 1): string {
+    const matchups = [
+      [this.advancingTeams[0], this.advancingTeams[3]],
+      [this.advancingTeams[1], this.advancingTeams[2]],
+    ];
+    const [teamA, teamB] = matchups[matchIndex];
+
+    return `${teamA} vs ${teamB} (1 Competitive Stadium Match)`;
+  }
+
+  private finalsNote(): string {
+    return `${this.finalists[0]} vs ${this.finalists[1]} (BO3 QP Stadium Match)`;
+  }
+
+  private get advancingTeams(): string[] {
+    const standings = this.teams
+      .map((name, index) => ({
+        name,
+        index,
+        wins: this.groupRounds.flatMap(round => round.winners).filter(winner => winner === name).length,
+      }))
+      .sort((a, b) => b.wins - a.wins || a.index - b.index);
+
+    const completedWinnerCount = this.groupRounds
+      .flatMap(round => round.winners)
+      .filter(winner => winner !== TBD_TEAM_NAME).length;
+
+    if (completedWinnerCount === 0) {
+      return ['TBD 1', 'TBD 2', 'TBD 3', 'TBD 4'];
+    }
+
+    return standings.slice(0, 4).map(team => team.name);
+  }
+
+  private get finalists(): string[] {
+    return ['TBD 1', 'TBD 2'];
+  }
 
   openDiscord() {window.open(DISCORD_INVITE_URL, '_blank');}
 }

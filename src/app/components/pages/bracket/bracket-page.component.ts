@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
+import { GROUP_STAGE_ROUNDS, TEAM_NAMES } from '../../../constants';
 
 interface GroupRound {
   name: string;
-  matches: string[];
-  winners: string[];
+  matches: readonly (readonly [string, string])[];
+  winners: readonly string[];
 }
 
 interface BracketMatch {
@@ -43,9 +44,9 @@ interface BracketMatch {
 
               <div class="match-list">
                 <div class="match-row" *ngFor="let match of round.matches">
-                  <span>{{ match.split(' vs ')[0] }}</span>
+                  <span>{{ match[0] }}</span>
                   <strong>VS</strong>
-                  <span>{{ match.split(' vs ')[1] }}</span>
+                  <span>{{ match[1] }}</span>
                 </div>
               </div>
             </article>
@@ -423,35 +424,9 @@ interface BracketMatch {
   `],
 })
 export class BracketPageComponent {
-  readonly teams = ['Team 1', 'Team 2', 'Team 3', 'Team 4', 'Team 5'];
+  readonly teams = TEAM_NAMES;
 
-  groupRounds: GroupRound[] = [
-    {
-      name: 'Round 1',
-      matches: ['Team 1 vs Team 5', 'Team 2 vs Team 4'],
-      winners: ['TBD', 'TBD'],
-    },
-    {
-      name: 'Round 2',
-      matches: ['Team 1 vs Team 4', 'Team 5 vs Team 3'],
-      winners: ['TBD', 'TBD'],
-    },
-    {
-      name: 'Round 3',
-      matches: ['Team 1 vs Team 3', 'Team 4 vs Team 2'],
-      winners: ['TBD', 'TBD'],
-    },
-    {
-      name: 'Round 4',
-      matches: ['Team 1 vs Team 2', 'Team 3 vs Team 5'],
-      winners: ['TBD', 'TBD'],
-    },
-    {
-      name: 'Round 5',
-      matches: ['Team 2 vs Team 5', 'Team 3 vs Team 4'],
-      winners: ['TBD', 'TBD'],
-    },
-  ];
+  groupRounds: readonly GroupRound[] = GROUP_STAGE_ROUNDS;
 
   semiFinals: BracketMatch[] = [
     {

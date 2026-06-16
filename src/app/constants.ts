@@ -17,6 +17,42 @@ export const NAV_LINKS = ['Home', 'Rules', 'Schedule', 'Bracket', 'Participants'
 
 export const DISCORD_INVITE_URL = 'https://discord.gg/UFkS42E4t2';
 
+export const TEAM_NAMES = ['Team 1', 'Team 2', 'Valkyrie', 'Team 4', 'Team 5'] as const;
+
+export const SUB_ALT_TEAM_NAME = 'Sub/Alt';
+
+export const TBD_TEAM_NAME = 'TBD';
+
+export type GroupStageWinner = typeof TEAM_NAMES[number] | typeof TBD_TEAM_NAME;
+
+export const GROUP_STAGE_ROUNDS = [
+  {
+    name: 'Round 1',
+    matches: [[TEAM_NAMES[0], TEAM_NAMES[4]], [TEAM_NAMES[1], TEAM_NAMES[3]]],
+    winners: [TBD_TEAM_NAME, TBD_TEAM_NAME] as [GroupStageWinner, GroupStageWinner],
+  },
+  {
+    name: 'Round 2',
+    matches: [[TEAM_NAMES[0], TEAM_NAMES[3]], [TEAM_NAMES[4], TEAM_NAMES[2]]],
+    winners: [TBD_TEAM_NAME, TBD_TEAM_NAME] as [GroupStageWinner, GroupStageWinner],
+  },
+  {
+    name: 'Round 3',
+    matches: [[TEAM_NAMES[0], TEAM_NAMES[2]], [TEAM_NAMES[3], TEAM_NAMES[1]]],
+    winners: [TBD_TEAM_NAME, TBD_TEAM_NAME] as [GroupStageWinner, GroupStageWinner],
+  },
+  {
+    name: 'Round 4',
+    matches: [[TEAM_NAMES[0], TEAM_NAMES[1]], [TEAM_NAMES[2], TEAM_NAMES[4]]],
+    winners: [TBD_TEAM_NAME, TBD_TEAM_NAME] as [GroupStageWinner, GroupStageWinner],
+  },
+  {
+    name: 'Round 5',
+    matches: [[TEAM_NAMES[1], TEAM_NAMES[4]], [TEAM_NAMES[2], TEAM_NAMES[3]]],
+    winners: [TBD_TEAM_NAME, TBD_TEAM_NAME] as [GroupStageWinner, GroupStageWinner],
+  },
+] as const;
+
 export const HERO_IMAGE_BASE_PATH = '/assets/stadium-heros-img';
 
 export const HERO_IMAGE_MAP: Record<string, string> = {
