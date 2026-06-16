@@ -279,6 +279,7 @@ export class SchedulePageComponent {
       color: PRIDE_COLORS[4],
       events: [
         { time: '12:00 PM ET', label: 'Team Check-In', note: 'Discord check-in required for all teams' },
+
         { time: '12:15 PM ET', label: 'Round 1', note: 'Team 1 vs Team 5 (1 Standard Quickplay Stadium Match)' },
         { time: '12:45 PM ET', label: 'Round 1', note: 'Team 2 vs Team 4 (1 Standard Quickplay Stadium Match)' },
 
