@@ -280,27 +280,42 @@ export class SchedulePageComponent {
       events: [
         { time: '12:00 PM ET', label: 'Team Check-In', note: 'Discord check-in required for all teams' },
 
+        //12:15
         { time: '12:15 PM ET', label: 'Round 1', note: 'Team 1 vs Team 5 (1 Standard Quickplay Stadium Match)' },
-        { time: '12:45 PM ET', label: 'Round 1', note: 'Team 2 vs Team 4 (1 Standard Quickplay Stadium Match)' },
+        { time: '12:15 PM ET', label: 'Round 1', note: 'Team 2 vs Team 4 (1 Standard Quickplay Stadium Match)' },
 
-        { time: '1:15 PM ET', label: 'Round 2', note: 'Team 1 vs Team 4 (1 Standard Quickplay Stadium Match)' },
-        { time: '1:45 PM ET', label: 'Round 2', note: 'Team 5 vs Team 3 (1 Standard Quickplay Stadium Match)' },
+        //12:45
+        { time: '12:45 PM ET', label: 'Round 2', note: 'Team 1 vs Team 4 (1 Standard Quickplay Stadium Match)' },
+        { time: '12:45 PM ET', label: 'Round 2', note: 'Team 5 vs Team 3 (1 Standard Quickplay Stadium Match)' },
         
-        { time: '2:15 PM ET', label: 'Round 3', note: 'Team 1 vs Team 3 (1 Standard Quickplay Stadium Match)' },
-        { time: '2:45 PM ET', label: 'Round 3', note: 'Team 4 vs Team 2 (1 Standard Quickplay Stadium Match)' },
 
-        { time: '3:15 PM ET', label: 'Round 4', note: 'Team 1 vs Team 2 (1 Standard Quickplay Stadium Match)' },
-        { time: '3:45 PM ET', label: 'Round 4', note: 'Team 3 vs Team 5 (1 Standard Quickplay Stadium Match)' },
+        //1:15
+        { time: '1:15 PM ET', label: 'Round 3', note: 'Team 1 vs Team 3 (1 Standard Quickplay Stadium Match)' },
+        { time: '1:15 PM ET', label: 'Round 3', note: 'Team 4 vs Team 2 (1 Standard Quickplay Stadium Match)' },
 
-        { time: '4:15 PM ET', label: 'Round 5', note: 'Team 2 vs Team 5 (1 Standard Quickplay Stadium Match)' },
-        { time: '4:45 PM ET', label: 'Round 5', note: 'Team 3 vs Team 4 (1 Standard Quickplay Stadium Match)' },
 
-        { time: '5:30 PM ET', label: 'Semi-Finals', note: 'TBD vs TBD (1 Competitive Stadium Match)' },
-        { time: '6:15 PM ET', label: 'Semi-Finals', note: 'TBD vs TBD (1 Competitive Stadium Match)' },
+        //1:45
+        { time: '1:45 PM ET', label: 'Round 4', note: 'Team 1 vs Team 2 (1 Standard Quickplay Stadium Match)' },
+        { time: '1:45 PM ET', label: 'Round 4', note: 'Team 3 vs Team 5 (1 Standard Quickplay Stadium Match)' },
 
-        { time: '7:00 PM ET', label: 'Finals', note: 'TBD vs TBD (BO3 QP Stadium Match)' },
+
+        //2:15
+        { time: '2:15 PM ET', label: 'Round 5', note: 'Team 2 vs Team 5 (1 Standard Quickplay Stadium Match)' },
+        { time: '2:15 PM ET', label: 'Round 5', note: 'Team 3 vs Team 4 (1 Standard Quickplay Stadium Match)' },
+
+
+        //3:00 PM
+        { time: '3:00 PM ET', label: 'Semi-Finals', note: 'TBD vs TBD (1 Competitive Stadium Match)' },
+
+        //3:45 PM
+        { time: '3:45 PM ET', label: 'Semi-Finals', note: 'TBD vs TBD (1 Competitive Stadium Match)' },
+
+        //4:30 PM
+        { time: '4:30 PM ET', label: 'Finals', note: 'TBD vs TBD (BO3 QP Stadium Match)' },
       ],
     },
+
+
   ];
 
   openDiscord() {window.open(DISCORD_INVITE_URL, '_blank');}
