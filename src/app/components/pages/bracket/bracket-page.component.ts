@@ -48,6 +48,17 @@ interface BracketMatch {
           </div>
         </div>
 
+        <section class="standings-panel">
+          <div class="section-kicker condensed">Group Standings</div>
+          <div class="standings-grid">
+            <article class="standing-card" *ngFor="let team of standings">
+              <span class="team-name condensed">{{ team.name }}</span>
+              <strong>{{ team.wins }}</strong>
+              <span class="wins-label condensed">{{ team.wins === 1 ? 'Round Won' : 'Rounds Won' }}</span>
+            </article>
+          </div>
+        </section>
+
         <div class="advance-strip condensed">Top 4 Teams Advance To Semi-Finals</div>
 
         <div class="elimination-stage">
@@ -218,6 +229,62 @@ interface BracketMatch {
       text-transform: uppercase;
     }
 
+    .standings-panel {
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .standings-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(130px, 1fr));
+      gap: 10px;
+    }
+
+    .standing-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "team wins"
+        "label wins";
+      align-items: center;
+      min-height: 76px;
+      gap: 4px 12px;
+      padding: 14px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 6px;
+    }
+
+    .team-name {
+      grid-area: team;
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .standing-card strong {
+      grid-area: wins;
+      color: #FFA52C;
+      font-family: 'Black Ops One', cursive;
+      font-size: 36px;
+      line-height: 1;
+    }
+
+    .wins-label {
+      grid-area: label;
+      color: rgba(255,255,255,.48);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
     .elimination-stage {
       display: grid;
       grid-template-columns: minmax(260px, 1fr) 80px minmax(260px, .9fr);
@@ -304,6 +371,10 @@ interface BracketMatch {
         grid-template-columns: repeat(2, minmax(220px, 1fr));
       }
 
+      .standings-grid {
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+      }
+
       .elimination-stage {
         grid-template-columns: 1fr;
       }
@@ -332,6 +403,10 @@ interface BracketMatch {
         grid-template-columns: 1fr;
       }
 
+      .standings-grid {
+        grid-template-columns: 1fr;
+      }
+
       .match-row {
         font-size: 16px;
       }
@@ -339,6 +414,8 @@ interface BracketMatch {
   `],
 })
 export class BracketPageComponent {
+  readonly teams = ['Team 1', 'Team 2', 'Team 3', 'Team 4', 'Team 5'];
+
   groupRounds: GroupRound[] = [
     {
       name: 'Round 1',
@@ -387,4 +464,11 @@ export class BracketPageComponent {
       teams: ['TBD 1', 'TBD 2'],
     },
   ];
+
+  get standings() {
+    return this.teams.map(name => ({
+      name,
+      wins: this.groupRounds.filter(round => round.winner === name).length,
+    }));
+  }
 }
