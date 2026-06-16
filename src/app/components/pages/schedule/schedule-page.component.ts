@@ -295,9 +295,9 @@ export class SchedulePageComponent {
         { time: '4:45 PM ET', label: 'Round 5', note: 'Team 3 vs Team 4 (1 Standard Quickplay Stadium Match)' },
 
         { time: '5:30 PM ET', label: 'Semi-Finals', note: 'TBD vs TBD (1 Competitive Stadium Match)' },
-        { time: '6:05 PM ET', label: 'Semi-Finals', note: 'TBD vs TBD (1 Competitive Stadium Match)' },
+        { time: '6:15 PM ET', label: 'Semi-Finals', note: 'TBD vs TBD (1 Competitive Stadium Match)' },
 
-        { time: '6:40 PM ET', label: 'Finals', note: 'TBD vs TBD (BO3 QP Stadium Match)' },
+        { time: '7:00 PM ET', label: 'Finals', note: 'TBD vs TBD (BO3 QP Stadium Match)' },
       ],
     },
   ];
