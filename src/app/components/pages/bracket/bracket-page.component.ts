@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { GROUP_STAGE_ROUNDS, TEAM_NAMES } from '../../../constants';
+import { GROUP_STAGE_ROUNDS, OAL_TWITCH_URL, TEAM_NAMES } from '../../../constants';
 
 interface GroupRound {
   name: string;
   matches: readonly (readonly [string, string])[];
+  streamedMatchIndex: number;
   winners: readonly string[];
 }
 
@@ -30,7 +31,10 @@ interface BracketMatch {
 
       <section class="bracket-board">
         <div class="group-stage">
-          <div class="section-kicker condensed">Group Stage</div>
+          <div class="group-stage-header">
+            <div class="section-kicker condensed">Group Stage</div>
+            <p class="stream-note condensed">Matches in purple will be streamed.</p>
+          </div>
           <div class="round-grid">
             <article class="round-card" *ngFor="let round of groupRounds">
               <div class="round-header">
@@ -43,7 +47,15 @@ interface BracketMatch {
               </div>
 
               <div class="match-list">
-                <div class="match-row" *ngFor="let match of round.matches">
+                <div
+                  class="match-row"
+                  [class.streamed-match]="round.streamedMatchIndex === i"
+                  [attr.role]="round.streamedMatchIndex === i ? 'link' : null"
+                  [attr.tabindex]="round.streamedMatchIndex === i ? 0 : null"
+                  (click)="openStream(round.streamedMatchIndex === i)"
+                  (keydown.enter)="openStream(round.streamedMatchIndex === i)"
+                  *ngFor="let match of round.matches; let i = index"
+                >
                   <span>{{ match[0] }}</span>
                   <strong>VS</strong>
                   <span>{{ match[1] }}</span>
@@ -141,6 +153,29 @@ interface BracketMatch {
       text-transform: uppercase;
     }
 
+    .group-stage-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .group-stage-header .section-kicker {
+      margin-bottom: 0;
+    }
+
+    .stream-note {
+      color: rgba(255,255,255,.62);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      margin: 0;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
     .round-grid {
       display: grid;
       grid-template-columns: repeat(5, minmax(170px, 1fr));
@@ -218,6 +253,23 @@ interface BracketMatch {
       color: #FFA52C;
       font-size: 11px;
       letter-spacing: .1em;
+    }
+
+    .match-row.streamed-match {
+      background: #9146FF;
+      border-color: rgba(255,255,255,.3);
+      box-shadow: 0 0 0 1px rgba(145,70,255,.25), 0 10px 24px rgba(145,70,255,.22);
+      cursor: pointer;
+    }
+
+    .match-row.streamed-match strong {
+      color: #fff;
+    }
+
+    .match-row.streamed-match:hover,
+    .match-row.streamed-match:focus-visible {
+      outline: 2px solid rgba(255,255,255,.78);
+      outline-offset: 2px;
     }
 
     .advance-strip {
@@ -409,6 +461,15 @@ interface BracketMatch {
         padding: 48px 16px;
       }
 
+      .group-stage-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .stream-note {
+        text-align: left;
+      }
+
       .round-grid {
         grid-template-columns: 1fr;
       }
@@ -454,5 +515,11 @@ export class BracketPageComponent {
       name,
       wins: this.groupRounds.flatMap(round => round.winners).filter(winner => winner === name).length,
     }));
+  }
+
+  openStream(isStreamedMatch: boolean): void {
+    if (isStreamedMatch) {
+      window.open(OAL_TWITCH_URL, '_blank', 'noopener,noreferrer');
+    }
   }
 }

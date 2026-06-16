@@ -17,6 +17,8 @@ export const NAV_LINKS = ['Home', 'Rules', 'Schedule', 'Bracket', 'Participants'
 
 export const DISCORD_INVITE_URL = 'https://discord.gg/UFkS42E4t2';
 
+export const OAL_TWITCH_URL = 'https://www.twitch.tv/oal_official';
+
 export const TEAM_NAMES = ['Team 1', 'Team 2', 'Valkyrie', 'Team 4', 'Team 5'] as const;
 
 export const SUB_ALT_TEAM_NAME = 'Sub/Alt';
@@ -29,26 +31,31 @@ export const GROUP_STAGE_ROUNDS = [
   {
     name: 'Round 1',
     matches: [[TEAM_NAMES[0], TEAM_NAMES[4]], [TEAM_NAMES[1], TEAM_NAMES[3]]],
+    streamedMatchIndex: 0,
     winners: [TBD_TEAM_NAME, TBD_TEAM_NAME] as [GroupStageWinner, GroupStageWinner],
   },
   {
     name: 'Round 2',
-    matches: [[TEAM_NAMES[0], TEAM_NAMES[3]], [TEAM_NAMES[4], TEAM_NAMES[2]]],
+    matches: [[TEAM_NAMES[4], TEAM_NAMES[2]], [TEAM_NAMES[0], TEAM_NAMES[3]]],
+    streamedMatchIndex: 0,
     winners: [TBD_TEAM_NAME, TBD_TEAM_NAME] as [GroupStageWinner, GroupStageWinner],
   },
   {
     name: 'Round 3',
-    matches: [[TEAM_NAMES[0], TEAM_NAMES[2]], [TEAM_NAMES[3], TEAM_NAMES[1]]],
+    matches: [[TEAM_NAMES[3], TEAM_NAMES[1]], [TEAM_NAMES[0], TEAM_NAMES[2]]],
+    streamedMatchIndex: 0,
     winners: [TBD_TEAM_NAME, TBD_TEAM_NAME] as [GroupStageWinner, GroupStageWinner],
   },
   {
     name: 'Round 4',
     matches: [[TEAM_NAMES[0], TEAM_NAMES[1]], [TEAM_NAMES[2], TEAM_NAMES[4]]],
+    streamedMatchIndex: 0,
     winners: [TBD_TEAM_NAME, TBD_TEAM_NAME] as [GroupStageWinner, GroupStageWinner],
   },
   {
     name: 'Round 5',
-    matches: [[TEAM_NAMES[1], TEAM_NAMES[4]], [TEAM_NAMES[2], TEAM_NAMES[3]]],
+    matches: [[TEAM_NAMES[2], TEAM_NAMES[3]], [TEAM_NAMES[1], TEAM_NAMES[4]]],
+    streamedMatchIndex: 0,
     winners: [TBD_TEAM_NAME, TBD_TEAM_NAME] as [GroupStageWinner, GroupStageWinner],
   },
 ] as const;
