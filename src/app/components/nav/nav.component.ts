@@ -149,6 +149,33 @@ import { NAV_LINKS, PRIDE_COLORS, GOOGLE_FORM_URL } from '../../constants';
       border-radius: 8px;
       text-transform: uppercase;
     }
+
+    @media (max-width: 760px) {
+      .nav-inner {
+        height: auto;
+        min-height: 64px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 16px 12px;
+      }
+
+      .nav-links {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-link {
+        font-size: 14px;
+        padding: 7px 10px;
+      }
+
+      .register-btn {
+        margin-left: 0;
+        padding: 7px 12px;
+      }
+    }
   `],
 })
 export class NavComponent {
