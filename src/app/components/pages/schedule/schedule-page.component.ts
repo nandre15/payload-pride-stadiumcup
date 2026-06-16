@@ -283,7 +283,7 @@ export class SchedulePageComponent {
         { time: '12:45 PM ET', label: 'Round 1', note: 'Team 2 vs Team 4 (1 Standard Quickplay Stadium Match)' },
 
         { time: '1:15 PM ET', label: 'Round 2', note: 'Team 1 vs Team 4 (1 Standard Quickplay Stadium Match)' },
-        { time: '2:45 PM ET', label: 'Round 2', note: 'Team 5 vs Team 3 (1 Standard Quickplay Stadium Match)' },
+        { time: '1:45 PM ET', label: 'Round 2', note: 'Team 5 vs Team 3 (1 Standard Quickplay Stadium Match)' },
         
         { time: '2:15 PM ET', label: 'Round 3', note: 'Team 1 vs Team 3 (1 Standard Quickplay Stadium Match)' },
         { time: '2:45 PM ET', label: 'Round 3', note: 'Team 4 vs Team 2 (1 Standard Quickplay Stadium Match)' },
