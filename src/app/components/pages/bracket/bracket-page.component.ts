@@ -4,7 +4,7 @@ import { NgFor } from '@angular/common';
 interface GroupRound {
   name: string;
   matches: string[];
-  winner: string;
+  winners: string[];
 }
 
 interface BracketMatch {
@@ -34,7 +34,11 @@ interface BracketMatch {
             <article class="round-card" *ngFor="let round of groupRounds">
               <div class="round-header">
                 <h2 class="condensed">{{ round.name }}</h2>
-                <span>Winner: {{ round.winner }}</span>
+                <div class="winner-summary">
+                  <span *ngFor="let winner of round.winners; let i = index">
+                    Winner {{ i + 1 }}: {{ winner }}
+                  </span>
+                </div>
               </div>
 
               <div class="match-list">
@@ -171,12 +175,17 @@ interface BracketMatch {
       text-transform: uppercase;
     }
 
-    .round-header span {
+    .winner-summary {
+      display: grid;
+      gap: 3px;
+      text-align: right;
+    }
+
+    .winner-summary span {
       color: rgba(255,255,255,.48);
       font-size: 12px;
       font-weight: 700;
       line-height: 1.1;
-      text-align: right;
       text-transform: uppercase;
     }
 
@@ -420,27 +429,27 @@ export class BracketPageComponent {
     {
       name: 'Round 1',
       matches: ['Team 1 vs Team 5', 'Team 2 vs Team 4'],
-      winner: 'TBD',
+      winners: ['TBD', 'TBD'],
     },
     {
       name: 'Round 2',
       matches: ['Team 1 vs Team 4', 'Team 5 vs Team 3'],
-      winner: 'TBD',
+      winners: ['TBD', 'TBD'],
     },
     {
       name: 'Round 3',
       matches: ['Team 1 vs Team 3', 'Team 4 vs Team 2'],
-      winner: 'TBD',
+      winners: ['TBD', 'TBD'],
     },
     {
       name: 'Round 4',
       matches: ['Team 1 vs Team 2', 'Team 3 vs Team 5'],
-      winner: 'TBD',
+      winners: ['TBD', 'TBD'],
     },
     {
       name: 'Round 5',
       matches: ['Team 2 vs Team 5', 'Team 3 vs Team 4'],
-      winner: 'TBD',
+      winners: ['TBD', 'TBD'],
     },
   ];
 
@@ -468,7 +477,7 @@ export class BracketPageComponent {
   get standings() {
     return this.teams.map(name => ({
       name,
-      wins: this.groupRounds.filter(round => round.winner === name).length,
+      wins: this.groupRounds.flatMap(round => round.winners).filter(winner => winner === name).length,
     }));
   }
 }
