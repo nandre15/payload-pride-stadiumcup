@@ -19,7 +19,7 @@ export const DISCORD_INVITE_URL = 'https://discord.gg/UFkS42E4t2';
 
 export const OAL_TWITCH_URL = 'https://www.twitch.tv/oal_official';
 
-export const TEAM_NAMES = ['Team 1', 'Team 2', 'Valkyrie', 'Team 4', 'Hyrax'] as const;
+export const TEAM_NAMES = ['Stonewall', 'Alphabet Brigade', 'Valkyrie', 'The First Brick', 'Hyrax'] as const;
 
 export const SUB_ALT_TEAM_NAME = 'Sub/Alt';
 
