@@ -392,7 +392,7 @@ export class ParticipantsPageComponent {
     { name: 'Larrbearfps', team: TEAM_NAMES[1], pronouns: 'He/him', twitch: 'https://www.twitch.tv/Larrbearfps', preferredHero: 'soldier76', role: 'dps' },
     { name: 'Aetheriiel', team: TEAM_NAMES[1], pronouns: 'They/Them', twitch: 'https://www.twitch.tv/Aetheriiel', preferredHero: 'ana', role: 'dps' },
 
-    { name: 'jhicks311', team: TEAM_NAMES[1], pronouns: 'she/her', twitch: 'https://www.twitch.tv/cutiejulie_', preferredHero: 'brigitte', role: 'support' },
+    { name: 'Potato', team: TEAM_NAMES[1], pronouns: 'he/him', twitch: '', preferredHero: 'brigitte', role: 'support' },
     { name: 'Matchu', team: TEAM_NAMES[1], pronouns: 'He/him', twitch: 'https://www.twitch.tv/matchupichu777', preferredHero: 'brigitte', role: 'support' },
 
 
