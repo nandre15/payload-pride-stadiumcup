@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { GROUP_STAGE_ROUNDS, OAL_TWITCH_URL, TEAM_NAMES } from '../../../constants';
 
 interface GroupRound {
   name: string;
   matches: readonly (readonly [string, string])[];
   streamedMatchIndex: number;
+  isLive: boolean;
   winners: readonly string[];
 }
 
@@ -13,12 +14,13 @@ interface BracketMatch {
   title: string;
   mode: string;
   teams: string[];
+  isLive: boolean;
 }
 
 @Component({
   selector: 'app-bracket-page',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, NgIf],
   template: `
     <div class="bracket-container">
       <h1 class="black-ops page-heading">
@@ -37,6 +39,10 @@ interface BracketMatch {
           </div>
           <div class="round-grid">
             <article class="round-card" *ngFor="let round of groupRounds">
+              <div class="live-status condensed" *ngIf="round.isLive">
+                <span></span>
+                Live Now
+              </div>
               <div class="round-header">
                 <h2 class="condensed">{{ round.name }}</h2>
                 <div class="winner-summary">
@@ -82,6 +88,10 @@ interface BracketMatch {
           <div class="bracket-column">
             <div class="section-kicker condensed">Semi-Finals</div>
             <article class="elim-card" *ngFor="let match of semiFinals">
+              <div class="live-status condensed" *ngIf="match.isLive">
+                <span></span>
+                Live Now
+              </div>
               <div class="match-meta">
                 <h2 class="condensed">{{ match.title }}</h2>
                 <p>{{ match.mode }}</p>
@@ -97,6 +107,10 @@ interface BracketMatch {
           <div class="bracket-column finals-column">
             <div class="section-kicker condensed">Finals</div>
             <article class="elim-card final-card" *ngFor="let match of finals">
+              <div class="live-status condensed" *ngIf="match.isLive">
+                <span></span>
+                Live Now
+              </div>
               <div class="match-meta">
                 <h2 class="condensed">{{ match.title }}</h2>
                 <p>{{ match.mode }}</p>
@@ -188,6 +202,30 @@ interface BracketMatch {
       border: 1px solid rgba(255,255,255,.1);
       border-radius: 8px;
       overflow: hidden;
+    }
+
+    .live-status {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 34px;
+      background: rgba(255,0,24,.92);
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .live-status span {
+      width: 9px;
+      height: 9px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(255,255,255,.65);
+      animation: livePulse 1.2s ease-out infinite;
     }
 
     .round-header {
@@ -428,6 +466,11 @@ interface BracketMatch {
       border: 1px solid transparent;
     }
 
+    @keyframes livePulse {
+      0% { box-shadow: 0 0 0 0 rgba(255,255,255,.65); }
+      100% { box-shadow: 0 0 0 9px rgba(255,255,255,0); }
+    }
+
     @media (max-width: 980px) {
       .round-grid {
         grid-template-columns: repeat(2, minmax(220px, 1fr));
@@ -494,11 +537,13 @@ export class BracketPageComponent {
       title: 'Semi-Final 1',
       mode: 'Single Comp Style Stadium Match',
       teams: ['TBD 1', 'TBD 2'],
+      isLive: false,
     },
     {
       title: 'Semi-Final 2',
       mode: 'Single Comp Style Stadium Match',
       teams: ['TBD 3', 'TBD 5'],
+      isLive: false,
     },
   ];
 
@@ -507,6 +552,7 @@ export class BracketPageComponent {
       title: 'Finals',
       mode: 'BO3 Stadium QP Matches with draft picks',
       teams: ['TBD 1', 'TBD 2'],
+      isLive: false,
     },
   ];
 
