@@ -537,13 +537,13 @@ export class BracketPageComponent {
       title: 'Semi-Final 1',
       mode: 'Single Comp Style Stadium Match',
       teams: ['Alphabet Brigade', 'The First Brick'],
-      isLive: true,
+      isLive: false,
     },
     {
       title: 'Semi-Final 2',
       mode: 'Single Comp Style Stadium Match',
       teams: ['Stonewall', 'Valkyrie'],
-      isLive: false,
+      isLive: true,
     },
   ];
 
@@ -551,7 +551,7 @@ export class BracketPageComponent {
     {
       title: 'Finals',
       mode: 'BO3 Stadium QP Matches with draft picks',
-      teams: ['TBD 1', 'TBD 2'],
+      teams: ['Alphabet Brigade', 'TBD 2'],
       isLive: false,
     },
   ];
