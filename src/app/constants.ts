@@ -40,14 +40,14 @@ export const GROUP_STAGE_ROUNDS = [
     name: 'Round 2',
     matches: [[TEAM_NAMES[4], TEAM_NAMES[2]], [TEAM_NAMES[0], TEAM_NAMES[3]]],
     streamedMatchIndex: 0,
-    isLive: true,
-    winners: [TBD_TEAM_NAME, TBD_TEAM_NAME] as [GroupStageWinner, GroupStageWinner],
+    isLive: false,
+    winners: ['Stonewall' , 'Valkyrie'] as [GroupStageWinner, GroupStageWinner],
   },
   {
     name: 'Round 3',
     matches: [[TEAM_NAMES[3], TEAM_NAMES[1]], [TEAM_NAMES[0], TEAM_NAMES[2]]],
     streamedMatchIndex: 0,
-    isLive: false,
+    isLive: true,
     winners: [TBD_TEAM_NAME, TBD_TEAM_NAME] as [GroupStageWinner, GroupStageWinner],
   },
   {
