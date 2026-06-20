@@ -61,7 +61,7 @@ export const GROUP_STAGE_ROUNDS = [
     name: 'Round 5',
     matches: [[TEAM_NAMES[4], TEAM_NAMES[3]], [TEAM_NAMES[1], TEAM_NAMES[2]]],
     streamedMatchIndex: 0,
-    isLive: true,
+    isLive: false,
     winners: ['Alphabet Brigade', 'The First Brick'] as [GroupStageWinner, GroupStageWinner],
   },
 ] as const;
