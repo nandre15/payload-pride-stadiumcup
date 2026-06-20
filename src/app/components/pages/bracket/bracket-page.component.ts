@@ -551,8 +551,8 @@ export class BracketPageComponent {
     {
       title: 'Finals',
       mode: 'BO3 Stadium QP Matches with draft picks',
-      teams: ['Alphabet Brigade', 'TBD 2'],
-      isLive: false,
+      teams: ['Alphabet Brigade', 'Stonewall'],
+      isLive: true,
     },
   ];
 
