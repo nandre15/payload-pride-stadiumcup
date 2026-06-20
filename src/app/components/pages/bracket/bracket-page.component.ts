@@ -537,13 +537,13 @@ export class BracketPageComponent {
       title: 'Semi-Final 1',
       mode: 'Single Comp Style Stadium Match',
       teams: ['Alphabet Brigade', 'The First Brick'],
-      isLive: false,
+      isLive: true,
     },
     {
       title: 'Semi-Final 2',
       mode: 'Single Comp Style Stadium Match',
       teams: ['Stonewall', 'Valkyrie'],
-      isLive: true,
+      isLive: false,
     },
   ];
 
