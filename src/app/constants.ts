@@ -32,7 +32,7 @@ export const GROUP_STAGE_ROUNDS = [
     name: 'Round 1',
     matches: [[TEAM_NAMES[0], TEAM_NAMES[4]], [TEAM_NAMES[1], TEAM_NAMES[3]]],
     streamedMatchIndex: 0,
-    isLive: false,
+    isLive: true,
     winners: [TBD_TEAM_NAME, TBD_TEAM_NAME] as [GroupStageWinner, GroupStageWinner],
   },
   {
