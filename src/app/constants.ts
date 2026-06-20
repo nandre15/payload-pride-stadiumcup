@@ -54,14 +54,14 @@ export const GROUP_STAGE_ROUNDS = [
     name: 'Round 4',
     matches: [[TEAM_NAMES[0], TEAM_NAMES[1]], [TEAM_NAMES[2], TEAM_NAMES[4]]],
     streamedMatchIndex: 0,
-    isLive: true,
-    winners: [TBD_TEAM_NAME, TBD_TEAM_NAME] as [GroupStageWinner, GroupStageWinner],
+    isLive: false,
+    winners: ['Stonewall', 'Valkyrie'] as [GroupStageWinner, GroupStageWinner],
   },
   {
     name: 'Round 5',
     matches: [[TEAM_NAMES[2], TEAM_NAMES[3]], [TEAM_NAMES[1], TEAM_NAMES[4]]],
     streamedMatchIndex: 0,
-    isLive: false,
+    isLive: true,
     winners: [TBD_TEAM_NAME, TBD_TEAM_NAME] as [GroupStageWinner, GroupStageWinner],
   },
 ] as const;
