@@ -543,7 +543,7 @@ export class BracketPageComponent {
       title: 'Semi-Final 2',
       mode: 'Single Comp Style Stadium Match',
       teams: ['Stonewall', 'Valkyrie'],
-      isLive: true,
+      isLive: false,
     },
   ];
 
